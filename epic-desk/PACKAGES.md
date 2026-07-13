@@ -1,0 +1,82 @@
+# Epic Desk — Sellable Packages
+
+**Money engine for Epic Tech AI.**  
+Contact: epictechai@gmail.com · x.com/@EpicTechAI
+
+**Product north star:** [Epic Everywhere](../docs/product-epic-everywhere.md) — full-service AI CS (chat → phone → live video tutoring) with **micro-transactions** so everyone can start.
+
+All prices USD. Agent **never invents prices** — only sells these SKUs (or a human-approved custom amount).
+
+## Layer A — Micro-transactions (AI adoption CS)
+
+| SKU | Name | Price | Deliverable | Who buys |
+|-----|------|------:|-------------|---------|
+| `human-ticket` | Human / entry ticket | **$0.99** | Low-friction access pass (map to existing Open Mic ticket product when useful) | Curious / community |
+| `ai-starter-pack` | AI Starter Pack | **$2.99** | 10 guided prompts + personal starter plan | Blank-prompt beginners |
+| `cs-text-burst` | Text CS Burst (24h) | **$4.99** | 24h text customer success on *their* AI setup | Stuck users |
+| `workflow-fix` | Workflow Fix | **$9.00** | One pain → one AI workflow they can reuse | Everyone |
+| `credit-10` | Credit Pack 10 | **$10.00** | 10 credits toward text CS / future voice mins | Repeat users |
+
+## Layer B — Live sessions (phone / video)
+
+| SKU | Name | Price | Channel | Status |
+|-----|------|------:|---------|--------|
+| `phone-15` | Phone coaching 15m | **$15** | Phone | Phase 2 (Twilio/Telnyx) |
+| `phone-30` | Phone coaching 30m | **$29** | Phone | Phase 2 |
+| `video-tutor-25` | Live video tutor 25m | **$25** | Video | Phase 3 (Daily/LiveKit) |
+| `video-tutor-50` | Live video tutor 50m | **$49** | Video | Phase 3 |
+| `class-seat` | Group class seat | **$12** | Group video | Phase 3 |
+
+Until Phase 2/3 connectors exist: take waitlist + email; optionally pre-sell via Payment Link and fulfill manually.
+
+## Layer C — Transform packages (Epic Desk core)
+
+| SKU | Name | Price | Deliverable | Who buys |
+|-----|------|------:|-------------|---------|
+| `pilot-landing` | Pilot Landing | **$750** | One-page site on Vercel + lead form + 1 revision | Solo founders testing demand |
+| `agent-ops-setup` | Agent Ops Setup | **$1,500** | Epic Tech project wired: Slack + Stripe + memory + runbook | Agencies / operators |
+| `school-pilot` | School Pilot | **$2,500** | Branded agent workspace + teacher handoff + 2-week support | Schools / edtech |
+
+## Existing Stripe catalog (live account — read 2026-07-12)
+
+These products already exist under account `acct_1P4BLMK5abcrIcye`. Use when matching a lead to something already sellable:
+
+| Product ID | Name | Notes |
+|------------|------|--------|
+| `prod_UfT5oV39X2LNxe` | Epic OS Pro | Team workspaces, custom apps, billing portal |
+| `prod_UfT5B6B3cSu7Yx` | Epic OS Desk | Desktop agent, media tools, deploy sync |
+| `prod_UWqtrGUuAcHEd2` | Epic Tech AI Agent™️ | default_price `price_1TXnBiK5abcrIcyectEwJFJZ` |
+| `prod_UOA242Qhon0mDP` | AI Open Mic — Verified Human Ticket | $0.99-class ticket product |
+| `prod_UMnx97jRZa5DE2` | Grok Magic Chat - Unlimited | Subscription-style product |
+| `prod_UKAdCP3Yei14hC` | Pixal-Tale | App product |
+| `prod_Q0SenMnNQjNcNT` | Your Custom Work Request | Custom work — default_price `price_1PARipK5abcrIcyeKAy4T0M4` |
+| `prod_PvhtLwCc3a5wWY` | Epic Tech AI-Engineer | Custom engineering |
+| `prod_PvLMMqwYNjND4w` | Generated Services | default_price `price_1P5UfwK5abcrIcyefPUOPfa9` |
+
+**Map new Epic Desk SKUs → create products in Stripe Dashboard** (or unlock `product_write` on the restricted key). Until then, route custom work to **Your Custom Work Request** / **Epic Tech AI-Engineer** after human price approval.
+
+## Payment rule
+
+1. Human must **Approve** SKU + amount (Slack or chat).  
+2. Only then create customer + invoice / payment path via executor.  
+3. Never auto-charge. Never use leaked keys. Never store card data in memory.
+
+## Stripe restricted key scopes required (unblock list)
+
+Current key can **list products** but cannot create products, read prices, or create customers.
+
+Enable on the restricted key (Stripe Dashboard → API keys → edit):
+
+| Scope | Why |
+|-------|-----|
+| `customer_write` | Create / update customers for invoices |
+| `customer_read` | Look up returning clients |
+| `invoice_write` | Create + finalize invoices |
+| `invoice_read` | Check paid status |
+| `product_write` | Create Epic Desk SKU products (or create once in Dashboard) |
+| `product_read` | Already works |
+| `plan_read` (Prices Read) | Read price IDs for checkout/invoice line items |
+| `checkout_session_write` | Preferred: Checkout Sessions with pay link |
+| optional `payment_intent_write` | Only if using PaymentIntents UI |
+
+After unlock, run: `epic-desk/scripts/seed_stripe_catalog.md` steps (or ask the agent: “seed Epic Desk Stripe catalog”).

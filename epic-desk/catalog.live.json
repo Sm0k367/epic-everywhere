@@ -1,0 +1,148 @@
+{
+  "updated": "2026-07-12",
+  "currency": "usd",
+  "status": "pending_seed",
+  "note": "Fill payment_link after Dashboard Payment Links or key unlock. Micro SKUs are the top-of-funnel money path.",
+  "skus": {
+    "human-ticket": {
+      "name": "Human / entry ticket",
+      "amount_cents": 99,
+      "product_id": "prod_UOA242Qhon0mDP",
+      "price_id": "price_1TPNiYK5abcrIcyeGMVWVLaY",
+      "payment_link": null,
+      "layer": "micro"
+    },
+    "ai-starter-pack": {
+      "name": "AI Starter Pack",
+      "amount_cents": 299,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "micro"
+    },
+    "cs-text-burst": {
+      "name": "Text CS Burst 24h",
+      "amount_cents": 499,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "micro"
+    },
+    "workflow-fix": {
+      "name": "Workflow Fix",
+      "amount_cents": 900,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "micro"
+    },
+    "credit-10": {
+      "name": "Credit Pack 10",
+      "amount_cents": 1000,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "micro"
+    },
+    "phone-15": {
+      "name": "Phone coaching 15m",
+      "amount_cents": 1500,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "session",
+      "status": "phase_2"
+    },
+    "phone-30": {
+      "name": "Phone coaching 30m",
+      "amount_cents": 2900,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "session",
+      "status": "phase_2"
+    },
+    "video-tutor-25": {
+      "name": "Live video tutor 25m",
+      "amount_cents": 2500,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "session",
+      "status": "phase_3"
+    },
+    "video-tutor-50": {
+      "name": "Live video tutor 50m",
+      "amount_cents": 4900,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "session",
+      "status": "phase_3"
+    },
+    "class-seat": {
+      "name": "Group class seat",
+      "amount_cents": 1200,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "session",
+      "status": "phase_3"
+    },
+    "pilot-landing": {
+      "name": "Epic Desk — Pilot Landing",
+      "amount_cents": 75000,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "package"
+    },
+    "agent-ops-setup": {
+      "name": "Epic Desk — Agent Ops Setup",
+      "amount_cents": 150000,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "package"
+    },
+    "school-pilot": {
+      "name": "Epic Desk — School Pilot",
+      "amount_cents": 250000,
+      "product_id": null,
+      "price_id": null,
+      "payment_link": null,
+      "layer": "package"
+    }
+  },
+  "existing_account_products": {
+    "epic_tech_ai_agent": {
+      "product_id": "prod_UWqtrGUuAcHEd2",
+      "default_price": "price_1TXnBiK5abcrIcyectEwJFJZ"
+    },
+    "ai_open_mic_ticket": {
+      "product_id": "prod_UOA242Qhon0mDP",
+      "default_price": "price_1TPNiYK5abcrIcyeGMVWVLaY",
+      "maps_to_sku": "human-ticket"
+    },
+    "custom_work_request": {
+      "product_id": "prod_Q0SenMnNQjNcNT",
+      "default_price": "price_1PARipK5abcrIcyeKAy4T0M4"
+    },
+    "generated_services": {
+      "product_id": "prod_PvLMMqwYNjND4w",
+      "default_price": "price_1P5UfwK5abcrIcyefPUOPfa9"
+    },
+    "epic_os_desk": {
+      "product_id": "prod_UfT5B6B3cSu7Yx",
+      "default_price": null
+    },
+    "epic_os_pro": {
+      "product_id": "prod_UfT5oV39X2LNxe",
+      "default_price": null
+    },
+    "grok_magic_chat": {
+      "product_id": "prod_UMnx97jRZa5DE2",
+      "default_price": "price_1TO4LCK5abcrIcyeENPLg7kB"
+    }
+  }
+}
