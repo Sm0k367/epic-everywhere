@@ -20,37 +20,36 @@ function randomToken(bytes = 24) {
   return crypto.randomBytes(bytes).toString("base64url");
 }
 
-async function putJson(key, obj, { access = "private" } = {}) {
+async function putJson(key, obj, { access = "public" } = {}) {
   const pathname = `${PREFIX}${key}`;
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
   const blob = await put(pathname, JSON.stringify(obj, null, 2), {
-    access,
+    access: "public",
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    token,
   });
   return blob;
 }
 
 async function getJson(key) {
   const pathname = `${PREFIX}${key}`;
-  // Prefer list+fetch by pathname; Blob private URLs need token
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) return null;
   try {
-    const result = await list({ prefix: pathname, limit: 1, token });
-    const hit = (result.blobs || []).find((b) => b.pathname === pathname);
+    // list with exact prefix; also try without requiring exact match
+    const result = await list({ prefix: pathname, limit: 10, token });
+    const blobs = result.blobs || [];
+    const hit =
+      blobs.find((b) => b.pathname === pathname) ||
+      blobs.find((b) => b.pathname.startsWith(pathname));
     if (!hit) return null;
-    const res = await fetch(hit.url, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    // Public blobs don't need auth; try without if 401
-    if (!res.ok) {
-      const res2 = await fetch(hit.url);
-      if (!res2.ok) return null;
-      return await res2.json();
-    }
+    const res = await fetch(hit.url);
+    if (!res.ok) return null;
     return await res.json();
-  } catch {
+  } catch (e) {
+    console.error("getJson", pathname, e.message);
     return null;
   }
 }
