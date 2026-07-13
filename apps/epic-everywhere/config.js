@@ -20,7 +20,7 @@ window.EPIC_CONFIG = {
       "price": "$0.99",
       "amount_cents": 99,
       "blurb": "Low-friction entry pass.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/eVq3cwaYN91Y5928nw0Fi0d"
     },
     {
       "id": "tip-3",
@@ -30,7 +30,7 @@ window.EPIC_CONFIG = {
       "price": "$3",
       "amount_cents": 300,
       "blurb": "Tip the CS desk \u2014 keeps free guidance alive.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/9B6cN6c2Rdie8le7js0Fi0e"
     },
     {
       "id": "tip-5",
@@ -40,7 +40,7 @@ window.EPIC_CONFIG = {
       "price": "$5",
       "amount_cents": 500,
       "blurb": "Bigger tip for deeper free help.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/7sYeVe9UJfqmdFyavE0Fi0f"
     },
     {
       "id": "ai-starter-pack",
@@ -50,7 +50,7 @@ window.EPIC_CONFIG = {
       "price": "$2.99",
       "amount_cents": 299,
       "blurb": "10 guided prompts + personal starter plan.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/28E7sM9UJba61WQdHQ0Fi0g"
     },
     {
       "id": "ai-starter-pack-pro",
@@ -60,7 +60,7 @@ window.EPIC_CONFIG = {
       "price": "$7.99",
       "amount_cents": 799,
       "blurb": "30 prompts + role plan + 48h text follow-up.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/00w14o8QF3HE1WQbzI0Fi0h"
     },
     {
       "id": "cs-text-burst",
@@ -70,7 +70,7 @@ window.EPIC_CONFIG = {
       "price": "$4.99",
       "amount_cents": 499,
       "blurb": "24h text customer success on your setup.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/28E8wQd6V5PM8le9rA0Fi0i",
       "featured": true
     },
     {
@@ -81,7 +81,7 @@ window.EPIC_CONFIG = {
       "price": "$9.99",
       "amount_cents": 999,
       "blurb": "3-day text CS window for harder setups.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/dRmcN62shcea0SM6fo0Fi0j"
     },
     {
       "id": "workflow-fix",
@@ -91,7 +91,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "One pain \u2192 one reusable AI workflow.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/3cI5kE6Ix4LI1WQ5bk0Fi0k",
       "featured": true
     },
     {
@@ -102,7 +102,7 @@ window.EPIC_CONFIG = {
       "price": "$24",
       "amount_cents": 2400,
       "blurb": "Three workflows for home, work, and side project.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/8x23cw8QF0vsgRKgU20Fi0l"
     },
     {
       "id": "credit-5",
@@ -112,7 +112,7 @@ window.EPIC_CONFIG = {
       "price": "$5",
       "amount_cents": 500,
       "blurb": "5 credits toward text CS.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/fZu14o6IxfqmbxqfPY0Fi0m"
     },
     {
       "id": "credit-10",
@@ -122,7 +122,7 @@ window.EPIC_CONFIG = {
       "price": "$10",
       "amount_cents": 1000,
       "blurb": "10 credits toward text CS / future voice.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/4gM4gAeaZ7XUgRK9rA0Fi0n"
     },
     {
       "id": "credit-25",
@@ -132,7 +132,7 @@ window.EPIC_CONFIG = {
       "price": "$22",
       "amount_cents": 2200,
       "blurb": "25 credits \u2014 best micro value.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/00w3cw5Et6TQ5929rA0Fi0o"
     },
     {
       "id": "credit-50",
@@ -142,7 +142,7 @@ window.EPIC_CONFIG = {
       "price": "$40",
       "amount_cents": 4000,
       "blurb": "50 credits for power users.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/4gM28s2shba6eJCdHQ0Fi0p"
     },
     {
       "id": "prompt-audit",
@@ -152,7 +152,7 @@ window.EPIC_CONFIG = {
       "price": "$7",
       "amount_cents": 700,
       "blurb": "We rewrite your 5 worst prompts into winners.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/00waEYgj72DA592dHQ0Fi0q"
     },
     {
       "id": "tool-stack-map",
@@ -162,7 +162,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "Which AI tools you actually need \u2014 one page plan.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/bJe28s1oda620SM1Z80Fi0r"
     },
     {
       "id": "student-homework-kit",
@@ -172,7 +172,7 @@ window.EPIC_CONFIG = {
       "price": "$4.99",
       "amount_cents": 499,
       "blurb": "Subject prompts + integrity-safe study method.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/cNicN61odba61WQ47g0Fi0s"
     },
     {
       "id": "student-essay-coach",
@@ -182,7 +182,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Outline, thesis, revision loop \u2014 you still write it.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/5kQ9AUaYNdiefNG0V40Fi0t"
     },
     {
       "id": "student-stem-pack",
@@ -192,7 +192,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Math/science problem-solving with AI, step-by-step.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/00w9AUeaZ0vs1WQdHQ0Fi0u"
     },
     {
       "id": "student-college-apps",
@@ -202,7 +202,7 @@ window.EPIC_CONFIG = {
       "price": "$15",
       "amount_cents": 1500,
       "blurb": "Brainstorm + structure essays ethically.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/bJeaEYc2Rfqm30U33c0Fi0v"
     },
     {
       "id": "parent-safety-kit",
@@ -212,7 +212,7 @@ window.EPIC_CONFIG = {
       "price": "$4.99",
       "amount_cents": 499,
       "blurb": "Family rules, tools, and homework boundaries.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/28E4gA7MB1zw8le0V40Fi0w"
     },
     {
       "id": "parent-homework-coach",
@@ -222,7 +222,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Help your kid use AI without doing it for them.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/3cI00k3wl5PM0SM33c0Fi0x"
     },
     {
       "id": "parent-device-setup",
@@ -232,7 +232,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "Phone/laptop AI apps configured for the household.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/8x2dRad6Vcea30U6fo0Fi0y"
     },
     {
       "id": "teacher-classroom-kit",
@@ -242,7 +242,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "One week of AI lesson assist prompts + policy notes.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/7sYeVe8QF4LIfNGcDM0Fi0z"
     },
     {
       "id": "teacher-rubric-pack",
@@ -252,7 +252,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "Faster feedback loops that stay human-led.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/fZubJ21od0vs1WQavE0Fi0A"
     },
     {
       "id": "teacher-pd-micro",
@@ -262,7 +262,7 @@ window.EPIC_CONFIG = {
       "price": "$19",
       "amount_cents": 1900,
       "blurb": "90-min async PD plan you can run with peers.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/7sY7sM5Etfqm9pidHQ0Fi0B"
     },
     {
       "id": "founder-offer-kit",
@@ -272,7 +272,7 @@ window.EPIC_CONFIG = {
       "price": "$15",
       "amount_cents": 1500,
       "blurb": "Positioning + offer page outline with AI.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/28EeVe3wl2DAgRK0V40Fi0C"
     },
     {
       "id": "founder-outreach-pack",
@@ -282,7 +282,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "20 personalized outreach templates + system.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/5kQ7sMaYNdie30U5bk0Fi0D"
     },
     {
       "id": "founder-support-bot-plan",
@@ -292,7 +292,7 @@ window.EPIC_CONFIG = {
       "price": "$19",
       "amount_cents": 1900,
       "blurb": "CS macros + AI assist design for your product.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/5kQ3cwgj76TQfNGeLU0Fi0E"
     },
     {
       "id": "smb-email-overhaul",
@@ -302,7 +302,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Rewrite your core business emails with AI.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/14A6oIgj7ba65920V40Fi0F"
     },
     {
       "id": "smb-review-replies",
@@ -312,7 +312,7 @@ window.EPIC_CONFIG = {
       "price": "$7",
       "amount_cents": 700,
       "blurb": "Google/Yelp reply system for local business.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/6oU5kE9UJguq6d633c0Fi0G"
     },
     {
       "id": "smb-sop-pack",
@@ -322,7 +322,7 @@ window.EPIC_CONFIG = {
       "price": "$15",
       "amount_cents": 1500,
       "blurb": "3 SOPs drafted with AI for your ops.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/7sY4gA9UJ1zw0SMbzI0Fi0H"
     },
     {
       "id": "creator-content-engine",
@@ -332,7 +332,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "7-day content system for X/Shorts/LinkedIn.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/4gM6oI3wl3HEgRKcDM0Fi0I"
     },
     {
       "id": "creator-script-pack",
@@ -342,7 +342,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Ten short-form scripts in your voice.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/4gMfZi9UJ91Y9pi1Z80Fi0J"
     },
     {
       "id": "career-resume-pack",
@@ -352,7 +352,7 @@ window.EPIC_CONFIG = {
       "price": "$15",
       "amount_cents": 1500,
       "blurb": "AI-assisted resume + profile rewrite.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/bJe14o9UJ4LI0SMeLU0Fi0K"
     },
     {
       "id": "career-interview-kit",
@@ -362,7 +362,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "STAR stories + mock questions with AI.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/aFadRa8QF5PMeJCdHQ0Fi0L"
     },
     {
       "id": "career-portfolio-plan",
@@ -372,7 +372,7 @@ window.EPIC_CONFIG = {
       "price": "$9",
       "amount_cents": 900,
       "blurb": "Ship a portfolio narrative in one weekend.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/00w00kaYNemigRK6fo0Fi0M"
     },
     {
       "id": "senior-basics",
@@ -382,7 +382,7 @@ window.EPIC_CONFIG = {
       "price": "$4.99",
       "amount_cents": 499,
       "blurb": "Patient, large-print style starter for non-tech adults.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/14A28seaZa62atm8nw0Fi0N"
     },
     {
       "id": "senior-phone-prep",
@@ -392,7 +392,7 @@ window.EPIC_CONFIG = {
       "price": "$3",
       "amount_cents": 300,
       "blurb": "Prep worksheet before a phone coaching call.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/3cI00kaYNfqmbxqdHQ0Fi0O"
     },
     {
       "id": "phone-15",
@@ -402,7 +402,7 @@ window.EPIC_CONFIG = {
       "price": "$15",
       "amount_cents": 1500,
       "blurb": "Guided AI setup call.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/8x214o6Ix5PMatmbzI0Fi0P",
       "phase": "Phase 2"
     },
     {
@@ -413,7 +413,7 @@ window.EPIC_CONFIG = {
       "price": "$29",
       "amount_cents": 2900,
       "blurb": "Deep-dive coaching call.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/aFa3cw9UJ6TQ0SM6fo0Fi0Q",
       "featured": true,
       "phase": "Phase 2"
     },
@@ -425,7 +425,7 @@ window.EPIC_CONFIG = {
       "price": "$55",
       "amount_cents": 5500,
       "blurb": "Full-hour implementation call.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/fZu8wQ6Ix7XUatm1Z80Fi0R",
       "phase": "Phase 2"
     },
     {
@@ -436,7 +436,7 @@ window.EPIC_CONFIG = {
       "price": "$25",
       "amount_cents": 2500,
       "blurb": "Screen-share. Do the task together.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/14AcN60k9cea5927js0Fi0S",
       "featured": true,
       "phase": "Phase 3"
     },
@@ -448,7 +448,7 @@ window.EPIC_CONFIG = {
       "price": "$49",
       "amount_cents": 4900,
       "blurb": "Project session with reusable pack.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/6oUaEYc2Rba644Y6fo0Fi0T",
       "phase": "Phase 3"
     },
     {
@@ -459,7 +459,7 @@ window.EPIC_CONFIG = {
       "price": "$89",
       "amount_cents": 8900,
       "blurb": "Deep build session.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/fZueVe7MBba60SM47g0Fi0U",
       "phase": "Phase 3"
     },
     {
@@ -470,7 +470,7 @@ window.EPIC_CONFIG = {
       "price": "$12",
       "amount_cents": 1200,
       "blurb": "Weekly AI-for-everyone class.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/4gM14o0k97XUatmavE0Fi0V",
       "phase": "Phase 3"
     },
     {
@@ -481,7 +481,7 @@ window.EPIC_CONFIG = {
       "price": "$40",
       "amount_cents": 4000,
       "blurb": "Four class seats.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/28E00k5Et4LI9pi1Z80Fi0W",
       "phase": "Phase 3"
     },
     {
@@ -492,7 +492,7 @@ window.EPIC_CONFIG = {
       "price": "$19",
       "amount_cents": 1900,
       "blurb": "Join next open office hours block.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/cNiaEY4Ap0vseJC0V40Fi0X",
       "phase": "Phase 2"
     },
     {
@@ -503,7 +503,7 @@ window.EPIC_CONFIG = {
       "price": "$750",
       "amount_cents": 75000,
       "blurb": "One-page site + form on Vercel.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/7sY3cw1od4LIbxqcDM0Fi0Y",
       "featured": true
     },
     {
@@ -514,7 +514,7 @@ window.EPIC_CONFIG = {
       "price": "$1,250",
       "amount_cents": 125000,
       "blurb": "Landing + Stripe micros + basic analytics.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/7sY28s9UJcea5926fo0Fi0Z"
     },
     {
       "id": "agent-ops-setup",
@@ -524,7 +524,7 @@ window.EPIC_CONFIG = {
       "price": "$1,500",
       "amount_cents": 150000,
       "blurb": "Slack + Stripe + agent ops wired.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/3cIcN64Ap2DA1WQdHQ0Fi10",
       "featured": true
     },
     {
@@ -535,7 +535,7 @@ window.EPIC_CONFIG = {
       "price": "$3,500",
       "amount_cents": 350000,
       "blurb": "Ops setup + 2 custom workflows + 30d CS.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/cNi9AU2sh5PMeJCbzI0Fi11"
     },
     {
       "id": "school-pilot",
@@ -545,7 +545,7 @@ window.EPIC_CONFIG = {
       "price": "$2,500",
       "amount_cents": 250000,
       "blurb": "Classroom AI adoption pilot.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/3cI8wQ4Apba6fNG8nw0Fi12",
       "featured": true
     },
     {
@@ -556,7 +556,7 @@ window.EPIC_CONFIG = {
       "price": "$7,500",
       "amount_cents": 750000,
       "blurb": "Multi-site pilot + teacher PD outline.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/eVq00k8QF3HE7ha1Z80Fi13"
     },
     {
       "id": "creator-brand-kit",
@@ -566,7 +566,7 @@ window.EPIC_CONFIG = {
       "price": "$990",
       "amount_cents": 99000,
       "blurb": "Positioning, content system, 30-day calendar.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/3cIaEY7MB0vs30U33c0Fi14"
     },
     {
       "id": "smb-ai-ops",
@@ -576,7 +576,7 @@ window.EPIC_CONFIG = {
       "price": "$1,990",
       "amount_cents": 199000,
       "blurb": "2-week ops automation sprint for local/online SMB.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/3cIeVe2sha6244YbzI0Fi15"
     },
     {
       "id": "career-sprint",
@@ -586,7 +586,7 @@ window.EPIC_CONFIG = {
       "price": "$499",
       "amount_cents": 49900,
       "blurb": "2-week job search system with AI.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/dRmcN61od1zw1WQ7js0Fi16"
     },
     {
       "id": "custom-work-deposit",
@@ -596,7 +596,7 @@ window.EPIC_CONFIG = {
       "price": "$500",
       "amount_cents": 50000,
       "blurb": "Kickoff deposit for scoped custom work.",
-      "paymentLink": null
+      "paymentLink": "https://buy.stripe.com/3cI00k9UJfqmdFyeLU0Fi17"
     },
     {
       "id": "retainer-lite",
@@ -606,7 +606,7 @@ window.EPIC_CONFIG = {
       "price": "$499",
       "amount_cents": 49900,
       "blurb": "Monthly async CS + 2 workflows.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/dRm4gAc2R1zwatmgU20Fi18",
       "recurring": "month"
     },
     {
@@ -617,7 +617,7 @@ window.EPIC_CONFIG = {
       "price": "$1,499",
       "amount_cents": 149900,
       "blurb": "Monthly ops + priority CS.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/9B65kE0k9fqmdFyeLU0Fi19",
       "recurring": "month"
     },
     {
@@ -628,7 +628,7 @@ window.EPIC_CONFIG = {
       "price": "$2,999",
       "amount_cents": 299900,
       "blurb": "Ongoing classroom AI support.",
-      "paymentLink": null,
+      "paymentLink": "https://buy.stripe.com/28E8wQ7MB91Y44YgU20Fi1a",
       "recurring": "month"
     }
   ]

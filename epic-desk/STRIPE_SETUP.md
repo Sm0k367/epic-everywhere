@@ -109,4 +109,11 @@ Do not promote Payment Links until the **deployed** site serves those URLs.
 
 Site buy buttons auto-enable when `paymentLink` is non-null in generated `config.js`.  
 Agent catalog: `epic-desk/catalog.live.json`.  
-Public repo: https://github.com/Sm0k367/epic-everywhere  
+Public repo: https://github.com/Sm0k367/epic-everywhere
+
+---
+
+## Related: Stripe Projects (different product)
+
+[Stripe Projects](https://docs.stripe.com/projects) (CLI public preview) provisions third-party services (Vercel, Supabase, Twilio, …) and syncs credentials to `.env`. It does **not** create Epic Everywhere Payment Links. For customer payments, use this doc + `seed_stripe_payment_links.py`. Project memory: `.kortix/memory/stripe-projects.md`.
+
