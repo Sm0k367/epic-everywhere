@@ -1,10 +1,14 @@
 const db = require("../lib/db");
 const { json, getBearer, cors } = require("../lib/http");
+const { clientIp, rateLimit } = require("../lib/security");
 
 module.exports = async function handler(req, res) {
-  cors(res);
+  cors(req, res);
   if (req.method === "OPTIONS") return res.end();
   if (req.method !== "GET") return json(res, 405, { error: "method_not_allowed" });
+
+  const rl = rateLimit("me:" + clientIp(req), 60, 60_000);
+  if (!rl.ok) return json(res, 429, { error: "rate_limited" });
 
   try {
     const token = getBearer(req);
@@ -26,6 +30,6 @@ module.exports = async function handler(req, res) {
     });
   } catch (e) {
     console.error(e);
-    return json(res, 500, { error: "me_failed", detail: String(e.message || e) });
+    return json(res, 500, { error: "me_failed" });
   }
 };

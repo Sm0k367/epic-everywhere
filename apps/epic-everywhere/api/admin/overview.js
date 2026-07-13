@@ -1,28 +1,34 @@
 const { list } = require("@vercel/blob");
 const db = require("../../lib/db");
 const { json, getBearer, cors, readJson } = require("../../lib/http");
+const {
+  timingSafeEqualStr,
+  clientIp,
+  rateLimit,
+} = require("../../lib/security");
 
 function adminOk(req) {
   const key = process.env.ADMIN_KEY;
   if (!key) return false;
-  const h = req.headers["x-admin-key"] || req.headers["X-Admin-Key"];
-  if (h && h === key) return true;
+  const h = req.headers["x-admin-key"] || "";
+  if (h && timingSafeEqualStr(h, key)) return true;
   const bearer = getBearer(req);
-  return bearer && bearer === key;
+  return bearer && timingSafeEqualStr(bearer, key);
 }
 
-/**
- * GET — dashboard stats + recent users/media (requires x-admin-key)
- * POST { email, credits } — grant credits
- */
 module.exports = async function handler(req, res) {
-  cors(res);
+  cors(req, res);
   if (req.method === "OPTIONS") return res.end();
+
+  const rl = rateLimit("admin:" + clientIp(req), 40, 60_000);
+  if (!rl.ok) return json(res, 429, { error: "rate_limited" });
+
   if (!adminOk(req)) return json(res, 401, { error: "unauthorized" });
 
   try {
     if (req.method === "POST") {
       const body = await readJson(req);
+      if (!body) return json(res, 400, { error: "invalid_json" });
       const email = String(body.email || "").trim().toLowerCase();
       const credits = Math.min(5000, Math.max(0, Number(body.credits) || 0));
       if (!email || !credits) return json(res, 400, { error: "bad_request" });
@@ -52,9 +58,6 @@ module.exports = async function handler(req, res) {
           if (r.ok) media.push(await r.json());
         } catch { /* skip */ }
       }
-      const lList = await list({ prefix: db.PREFIX + "ledger/", limit: 1, token });
-      ledgerCount = (lList.blobs || []).length;
-      // rough: list more for count
       const lList2 = await list({ prefix: db.PREFIX + "ledger/", limit: 500, token });
       ledgerCount = (lList2.blobs || []).length;
     }
@@ -92,6 +95,6 @@ module.exports = async function handler(req, res) {
     });
   } catch (e) {
     console.error(e);
-    return json(res, 500, { error: "admin_failed", detail: String(e.message || e) });
+    return json(res, 500, { error: "admin_failed" });
   }
 };

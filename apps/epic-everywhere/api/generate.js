@@ -3,20 +3,28 @@ const { put } = require("@vercel/blob");
 const db = require("../lib/db");
 const { generationCost } = require("../lib/credits");
 const { json, readJson, getBearer, cors } = require("../lib/http");
+const {
+  clientIp,
+  rateLimit,
+  sanitizePrompt,
+} = require("../lib/security");
 
 /**
  * POST { prompt, kind?: "image"|"image_hd" }
- * Auth: Bearer session token
- * Spends credits, stores image in Blob, returns url.
+ * Auth required. Credits deducted only after successful model response starts storage.
  */
 module.exports = async function handler(req, res) {
-  cors(res);
+  cors(req, res);
   if (req.method === "OPTIONS") return res.end();
   if (req.method !== "POST") return json(res, 405, { error: "method_not_allowed" });
 
+  const ip = clientIp(req);
+  const rl = rateLimit("gen:" + ip, 20, 60_000);
+  if (!rl.ok) return json(res, 429, { error: "rate_limited" });
+
   try {
     if (!process.env.OPENAI_API_KEY) {
-      return json(res, 503, { error: "media_not_configured", detail: "OPENAI_API_KEY missing" });
+      return json(res, 503, { error: "media_not_configured" });
     }
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
       return json(res, 503, { error: "storage_not_configured" });
@@ -28,14 +36,19 @@ module.exports = async function handler(req, res) {
       return json(res, 401, { error: "unauthorized" });
     }
 
+    const rlUser = rateLimit("gen_user:" + session.email, 30, 60_000);
+    if (!rlUser.ok) return json(res, 429, { error: "rate_limited" });
+
     const body = await readJson(req);
-    const prompt = String(body.prompt || "").trim();
+    if (!body) return json(res, 400, { error: "invalid_json" });
+
+    const prompt = sanitizePrompt(body.prompt);
     const kind = body.kind === "image_hd" ? "image_hd" : "image";
-    if (!prompt || prompt.length < 3) {
-      return json(res, 400, { error: "prompt_required" });
-    }
-    if (prompt.length > 2000) {
-      return json(res, 400, { error: "prompt_too_long" });
+    if (prompt.length < 3) return json(res, 400, { error: "prompt_required" });
+
+    // Block obvious prompt injection / abuse patterns lightly
+    if (/ignore (all )?(previous|above) instructions/i.test(prompt)) {
+      return json(res, 400, { error: "prompt_rejected" });
     }
 
     const cost = generationCost(kind);
@@ -45,15 +58,13 @@ module.exports = async function handler(req, res) {
         error: "insufficient_credits",
         credits: user.credits || 0,
         need: cost,
-        buy: "/#pricing",
       });
     }
 
-    // Reserve credits first
+    // Deduct first (prevent free abuse under concurrency); refund on failure
     await db.addCredits(session.email, -cost, `generate:${kind}`);
 
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    const size = kind === "image_hd" ? "1024x1024" : "1024x1024";
     const model = process.env.OPENAI_IMAGE_MODEL || "gpt-image-1-mini";
 
     let b64;
@@ -61,23 +72,22 @@ module.exports = async function handler(req, res) {
       const img = await openai.images.generate({
         model,
         prompt,
-        size,
+        size: "1024x1024",
         n: 1,
       });
       b64 = img.data?.[0]?.b64_json;
       if (!b64 && img.data?.[0]?.url) {
-        // fetch remote
         const r = await fetch(img.data[0].url);
+        if (!r.ok) throw new Error("image_fetch_failed");
         const buf = Buffer.from(await r.arrayBuffer());
         b64 = buf.toString("base64");
       }
     } catch (err) {
-      // refund on failure
       await db.addCredits(session.email, cost, `refund:generate_failed`);
-      console.error("image gen failed", err);
+      console.error("image gen failed", err.message);
       return json(res, 502, {
         error: "generation_failed",
-        detail: String(err.message || err),
+        detail: String(err.message || err).slice(0, 200),
       });
     }
 
@@ -88,7 +98,14 @@ module.exports = async function handler(req, res) {
 
     const id = db.randomToken(12);
     const buf = Buffer.from(b64, "base64");
-    const blob = await put(`media-files/${session.email.replace(/[^a-z0-9@._-]/gi, "_")}/${id}.png`, buf, {
+    // Cap size ~15MB
+    if (buf.length > 15 * 1024 * 1024) {
+      await db.addCredits(session.email, cost, `refund:image_too_large`);
+      return json(res, 502, { error: "image_too_large" });
+    }
+
+    const safeEmail = session.email.replace(/[^a-z0-9@._-]/gi, "_");
+    const blob = await put(`media-files/${safeEmail}/${id}.png`, buf, {
       access: "public",
       contentType: "image/png",
       addRandomSuffix: false,
@@ -118,6 +135,6 @@ module.exports = async function handler(req, res) {
     });
   } catch (e) {
     console.error(e);
-    return json(res, 500, { error: "generate_failed", detail: String(e.message || e) });
+    return json(res, 500, { error: "generate_failed" });
   }
 };

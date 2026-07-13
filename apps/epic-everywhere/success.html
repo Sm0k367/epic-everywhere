@@ -18,10 +18,10 @@
   <main class="wrap page" style="max-width:40rem">
     <p class="eyebrow">You're in</p>
     <h1 style="font-family:var(--display);font-weight:400;font-size:var(--text-xl);margin:0 0 1rem">Welcome. Let’s make something unforgettable.</h1>
-    <p class="lede">Your access is tied to the email on your receipt. Open Studio with that email and start creating — or message us if you want hands-on help.</p>
+    <p class="lede" id="status">Confirming your unlock with Stripe…</p>
     <ol class="check" style="margin:2rem 0">
-      <li><strong>Create:</strong> open <a href="./studio/">Studio</a> → sign in → generate.</li>
-      <li><strong>Get help:</strong> email <a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a> with what you want done.</li>
+      <li><strong>Create:</strong> open <a href="./studio/">Studio</a> → sign in with the email from your receipt.</li>
+      <li><strong>Get help:</strong> email <a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a>.</li>
       <li>Or DM <a href="https://x.com/EpicTechAI" target="_blank" rel="noopener">@EpicTechAI</a>.</li>
     </ol>
     <div class="row">
@@ -37,5 +37,42 @@
       <a href="./legal/AI-DISCLAIMER.md">AI Disclaimer</a>
     </p>
   </main>
+  <script>
+    (async function () {
+      var el = document.getElementById("status");
+      var params = new URLSearchParams(window.location.search);
+      var sid = params.get("session_id") || params.get("sessionId");
+      if (!sid) {
+        el.textContent = "You're all set. Open Studio with the email on your receipt to create.";
+        return;
+      }
+      try {
+        var res = await fetch("/api/claim", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sid }),
+        });
+        var data = await res.json();
+        if (res.ok && (data.granted || data.reason === "already_claimed")) {
+          el.textContent =
+            "Access confirmed" +
+            (data.credits ? " (+" + data.credits + " creates)" : "") +
+            ". Sign into Studio with " +
+            (data.email || "your receipt email") +
+            ".";
+          el.style.color = "#34d399";
+        } else if (data.error === "not_paid") {
+          el.textContent = "Payment not complete yet. If you were charged, contact support with your receipt.";
+          el.style.color = "#fb7185";
+        } else {
+          el.textContent =
+            "We received your checkout. If Studio access is missing in a minute, email epictechai@gmail.com with your receipt.";
+        }
+      } catch (e) {
+        el.textContent =
+          "You're checked out. Open Studio with your receipt email — contact us if access is missing.";
+      }
+    })();
+  </script>
 </body>
 </html>
