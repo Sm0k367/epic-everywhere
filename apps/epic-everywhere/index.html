@@ -30,7 +30,9 @@
       <nav class="nav" aria-label="Primary">
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
+        <a href="#catalog">Catalog (<span id="sku-count">…</span>)</a>
         <a href="#tutoring">Phone &amp; video</a>
+        <a href="./legal/">Legal</a>
         <a href="#start" class="btn btn-sm">Start</a>
       </nav>
     </div>
@@ -146,19 +148,28 @@
     <section class="pricing wrap" id="pricing">
       <header class="section-head">
         <h2>Micro first. Packages when you scale.</h2>
-        <p>Prices in USD. Buttons use live Stripe Payment Links when configured — otherwise they open the start form.</p>
+        <p>
+          Prices in USD. Full catalog lives below.
+          Buttons use live <strong>Stripe Payment Links</strong> when seeded —
+          otherwise they open the start form (legal policies still apply).
+        </p>
+        <p id="link-status" class="link-status" role="status"></p>
       </header>
 
-      <h3 class="tier-title">Micro · start everyone here</h3>
-      <div class="price-grid" id="micro-grid">
-        <!-- filled by config.js -->
+      <h3 class="tier-title">Featured</h3>
+      <div class="price-grid" id="featured-grid"></div>
+
+      <div id="catalog">
+        <h3 class="tier-title">Micro · filter by life domain</h3>
+        <div class="chips" id="vertical-chips" aria-label="Filter micros by vertical"></div>
+        <div class="price-grid" id="micro-grid"></div>
+
+        <h3 class="tier-title">Sessions · phone &amp; video</h3>
+        <div class="price-grid" id="session-grid"></div>
+
+        <h3 class="tier-title">Packages · transform &amp; retainers</h3>
+        <div class="price-grid" id="package-grid"></div>
       </div>
-
-      <h3 class="tier-title">Sessions · phone &amp; video</h3>
-      <div class="price-grid" id="session-grid"></div>
-
-      <h3 class="tier-title">Packages · transform</h3>
-      <div class="price-grid" id="package-grid"></div>
     </section>
 
     <section class="tutoring" id="tutoring">
@@ -221,7 +232,12 @@
           </label>
           <label>
             SKU (optional)
-            <input name="sku" type="text" placeholder="cs-text-burst / workflow-fix / …" />
+            <input name="sku" type="text" list="sku-list" placeholder="cs-text-burst / workflow-fix / …" />
+            <datalist id="sku-list"></datalist>
+          </label>
+          <label class="check-agree">
+            <input name="agree" type="checkbox" required />
+            <span>I agree to the <a href="./legal/TERMS.md">Terms</a>, <a href="./legal/PRIVACY.md">Privacy Policy</a>, and <a href="./legal/REFUNDS.md">Refund Policy</a>.</span>
           </label>
           <button type="submit" class="btn btn-primary btn-block">Email Epic Desk</button>
         </form>

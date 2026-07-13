@@ -93,3 +93,13 @@ Customer-facing policies live in [`apps/epic-everywhere/legal/`](./apps/epic-eve
 Repository license summary: [LICENSE](./LICENSE)
 
 These are an operational baseline; have counsel review for your jurisdiction before high-volume commerce.
+
+---
+
+## Catalog scale
+
+- **60 SKUs** in [`epic-desk/catalog.full.json`](./epic-desk/catalog.full.json) (micro · sessions · packages · retainers · vertical kits)
+- Live Stripe URLs in [`epic-desk/catalog.live.json`](./epic-desk/catalog.live.json)
+- Generate site config: `python3 epic-desk/scripts/generate_config.py`
+- Seed Payment Links (needs Stripe write scopes): `python3 epic-desk/scripts/seed_stripe_payment_links.py`
+- Setup guide: [`epic-desk/STRIPE_SETUP.md`](./epic-desk/STRIPE_SETUP.md)
