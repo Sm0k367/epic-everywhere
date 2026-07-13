@@ -134,4 +134,20 @@
       $("gate").classList.remove("hidden");
     });
   }
+
+  // Public health (no key)
+  fetch("/api/health")
+    .then((r) => r.json())
+    .then((h) => {
+      const el = $("health-line");
+      if (!el) return;
+      const bits = [];
+      bits.push(h.stripeKey ? "Stripe key ✓" : "Stripe key ✗");
+      bits.push(h.stripeWebhookSecret ? "Webhook secret ✓" : "Webhook secret missing (claim still works)");
+      bits.push(h.openai ? "OpenAI ✓" : "OpenAI ✗");
+      bits.push(h.blob ? "Storage ✓" : "Storage ✗");
+      el.textContent = bits.join(" · ");
+      el.className = h.stripeWebhookSecret && h.openai ? "msg ok" : "msg";
+    })
+    .catch(() => {});
 })();
