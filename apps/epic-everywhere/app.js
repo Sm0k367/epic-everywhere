@@ -1,26 +1,39 @@
 (function () {
   const cfg = window.EPIC_CONFIG || { skus: [] };
+
   const year = document.getElementById("y");
   if (year) year.textContent = String(new Date().getFullYear());
 
   const countEl = document.getElementById("sku-count");
-  if (countEl) {
-    countEl.textContent = String(cfg.skuCount || (cfg.skus || []).length);
-  }
+  if (countEl) countEl.textContent = String(cfg.skuCount || (cfg.skus || []).length);
 
-  const linked = (cfg.skus || []).filter(function (s) {
-    return s.paymentLink;
-  }).length;
+  const linked = (cfg.skus || []).filter((s) => s.paymentLink).length;
   const linkStatus = document.getElementById("link-status");
   if (linkStatus) {
     if (linked > 0) {
       linkStatus.textContent =
-        linked + " live Stripe Payment Links · remaining use start form until seeded";
+        linked + " live Stripe Payment Links · buy opens secure Checkout";
       linkStatus.classList.add("is-live");
     } else {
       linkStatus.textContent =
-        "Stripe Payment Links not seeded yet — buy buttons open the start form. See epic-desk/STRIPE_SETUP.md";
+        "Payment Links pending — buttons open the start form.";
     }
+  }
+
+  /* Mobile nav */
+  const nav = document.getElementById("nav");
+  const toggle = document.getElementById("nav-toggle");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      })
+    );
   }
 
   function card(sku) {
@@ -37,8 +50,8 @@
     const btnLabel = hasLink
       ? "Buy " + sku.price
       : sku.phase
-        ? "Waitlist / start form"
-        : "Reserve · start form";
+        ? "Waitlist"
+        : "Get help";
     return (
       '<article class="price-card" data-sku="' +
       escapeHtml(sku.id) +
@@ -83,31 +96,15 @@
   }
 
   function sortSkus(items) {
-    return items.slice().sort(function (a, b) {
+    return items.slice().sort((a, b) => {
       if (!!b.featured - !!a.featured) return !!b.featured - !!a.featured;
       return (a.amount_cents || 0) - (b.amount_cents || 0);
     });
   }
 
-  function fill(layer, elId, verticalFilter) {
-    const root = document.getElementById(elId);
-    if (!root) return;
-    let items = (cfg.skus || []).filter(function (s) {
-      return s.layer === layer;
-    });
-    if (verticalFilter && verticalFilter !== "all") {
-      items = items.filter(function (s) {
-        return (s.vertical || "") === verticalFilter;
-      });
-    }
-    items = sortSkus(items);
-    root.innerHTML = items.map(card).join("");
-    bindBuyClicks();
-  }
-
   function bindBuyClicks() {
-    document.querySelectorAll("[data-sku-buy]").forEach(function (el) {
-      el.onclick = function () {
+    document.querySelectorAll("[data-sku-buy]").forEach((el) => {
+      el.onclick = () => {
         if (el.classList.contains("is-waitlist")) {
           const skuInput = document.querySelector('#start-form [name="sku"]');
           if (skuInput) skuInput.value = el.getAttribute("data-sku-buy") || "";
@@ -116,33 +113,45 @@
     });
   }
 
+  function fill(layer, elId, verticalFilter) {
+    const root = document.getElementById(elId);
+    if (!root) return;
+    let items = (cfg.skus || []).filter((s) => s.layer === layer);
+    if (verticalFilter && verticalFilter !== "all") {
+      items = items.filter((s) => (s.vertical || "") === verticalFilter);
+    }
+    items = sortSkus(items);
+    root.innerHTML = items.map(card).join("");
+    bindBuyClicks();
+  }
+
   fill("micro", "micro-grid");
   fill("session", "session-grid");
   fill("package", "package-grid");
 
-  // Featured strip
   const feat = document.getElementById("featured-grid");
   if (feat) {
-    const featured = sortSkus(
-      (cfg.skus || []).filter(function (s) {
-        return s.featured;
-      })
-    );
+    const featured = sortSkus((cfg.skus || []).filter((s) => s.featured));
+    // Prefer media packs first for mind-blow
+    featured.sort((a, b) => {
+      const am = (a.vertical === "media") - (b.vertical === "media");
+      if (am) return -am;
+      return 0;
+    });
     feat.innerHTML = featured.map(card).join("");
     bindBuyClicks();
   }
 
-  // Vertical filter chips for micro
   const chips = document.getElementById("vertical-chips");
   if (chips) {
     const verts = {};
-    (cfg.skus || []).forEach(function (s) {
+    (cfg.skus || []).forEach((s) => {
       if (s.layer === "micro" && s.vertical) verts[s.vertical] = true;
     });
     const list = ["all"].concat(Object.keys(verts).sort());
     chips.innerHTML = list
-      .map(function (v, i) {
-        return (
+      .map(
+        (v, i) =>
           '<button type="button" class="chip' +
           (i === 0 ? " is-active" : "") +
           '" data-vertical="' +
@@ -150,54 +159,48 @@
           '">' +
           escapeHtml(v) +
           "</button>"
-        );
-      })
+      )
       .join("");
-    chips.addEventListener("click", function (e) {
+    chips.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-vertical]");
       if (!btn) return;
-      chips.querySelectorAll(".chip").forEach(function (c) {
-        c.classList.remove("is-active");
-      });
+      chips.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-active"));
       btn.classList.add("is-active");
       fill("micro", "micro-grid", btn.getAttribute("data-vertical"));
     });
   }
 
-  // SKU datalist for form
   const dl = document.getElementById("sku-list");
   if (dl) {
     dl.innerHTML = (cfg.skus || [])
-      .map(function (s) {
-        return '<option value="' + escapeHtml(s.id) + '">' + escapeHtml(s.name) + "</option>";
-      })
+      .map(
+        (s) =>
+          '<option value="' + escapeHtml(s.id) + '">' + escapeHtml(s.name) + "</option>"
+      )
       .join("");
   }
 
   const form = document.getElementById("start-form");
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const name = data.get("name") || "";
-      const email = data.get("email") || "";
-      const role = data.get("role") || "";
-      const job = data.get("job") || "";
-      const sku = data.get("sku") || "";
-      const subject = encodeURIComponent("Epic Everywhere CS — " + (role || "help"));
+      const subject = encodeURIComponent(
+        "Epic Everywhere CS — " + (data.get("role") || "help")
+      );
       const body = encodeURIComponent(
         [
-          "Name: " + name,
-          "Email: " + email,
-          "Role: " + role,
-          "SKU: " + (sku || "(none)"),
+          "Name: " + (data.get("name") || ""),
+          "Email: " + (data.get("email") || ""),
+          "Role: " + (data.get("role") || ""),
+          "SKU: " + (data.get("sku") || "(none)"),
           "",
           "Job to get done:",
-          job,
+          data.get("job") || "",
           "",
           "I agree to Terms / Privacy / Refunds at /legal/",
           "",
-          "— sent from epic-everywhere landing"
+          "— sent from epic-everywhere landing",
         ].join("\n")
       );
       window.location.href =
@@ -214,5 +217,27 @@
   const skuParam = params.get("sku");
   if (skuParam && form && form.elements.namedItem("sku")) {
     form.elements.namedItem("sku").value = skuParam;
+  }
+
+  // Dock active section highlight
+  const dock = document.querySelector(".dock");
+  if (dock && "IntersectionObserver" in window) {
+    const map = {
+      pricing: dock.querySelector('a[href="#pricing"]'),
+      start: dock.querySelector('a[href="#start"]'),
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          const a = map[en.target.id];
+          if (a) a.classList.toggle("is-active", en.isIntersecting);
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px" }
+    );
+    ["pricing", "start"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
   }
 })();

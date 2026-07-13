@@ -4,30 +4,37 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>You're in — Epic Everywhere</title>
+  <meta name="theme-color" content="#07080c" />
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Instrument+Serif&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <main class="wrap" style="padding: var(--space-16) 0; max-width: 40rem;">
-    <p class="eyebrow">Payment received path</p>
-    <h1 style="font-family: var(--display); font-size: var(--text-xl); font-weight: 400;">You're in. Let's finish the job.</h1>
-    <p class="lede">If Stripe redirected you here, message us with your SKU so Epic Desk can start CS immediately.</p>
-    <ol class="check">
-      <li><strong>Media credits:</strong> open <a href="./studio/">Studio</a> and sign in with the <em>same email</em> as your Stripe receipt. Credits apply after webhook (or within a few minutes).</li>
-      <li>Need human CS? Email <a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a> with subject “I paid — [SKU]”</li>
-      <li>Or DM <a href="https://x.com/EpicTechAI" target="_blank" rel="noopener noreferrer">@EpicTechAI</a></li>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./"><strong style="color:var(--text)">Epic Everywhere</strong></a>
+      <a class="btn btn-sm btn-primary" href="./studio/">Open Studio</a>
+    </div>
+  </header>
+  <main class="wrap page" style="max-width:40rem">
+    <p class="eyebrow">Payment received</p>
+    <h1 style="font-family:var(--display);font-weight:400;font-size:var(--text-xl);margin:0 0 1rem">You're in. Let's make something unforgettable.</h1>
+    <p class="lede">Credits apply to the email on your Stripe receipt (webhook). Then Studio is one login away.</p>
+    <ol class="check" style="margin:2rem 0">
+      <li><strong>Media:</strong> open <a href="./studio/">Studio</a> with the same email → generate.</li>
+      <li><strong>Human CS:</strong> email <a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a> — subject “I paid — [SKU]”.</li>
+      <li>Or DM <a href="https://x.com/EpicTechAI" target="_blank" rel="noopener">@EpicTechAI</a>.</li>
     </ol>
-    <p style="margin-top: var(--space-8);">
+    <div class="row">
       <a class="btn btn-primary" href="./studio/">Open Studio</a>
-      <a class="btn btn-ghost" href="./index.html#start">CS start form</a>
-      <a class="btn btn-ghost" href="./index.html">Back home</a>
-    </p>
-    <p class="legal" style="margin-top: var(--space-8); font-size: var(--text-xs); color: var(--muted);">
-      Purchases are subject to our
-      <a href="./legal/TERMS.md">Terms</a>,
-      <a href="./legal/PRIVACY.md">Privacy Policy</a>,
-      <a href="./legal/REFUNDS.md">Refunds</a>, and
-      <a href="./legal/AI-DISCLAIMER.md">AI Disclaimer</a>.
+      <a class="btn btn-ghost" href="./#pricing">Buy more</a>
+      <a class="btn btn-ghost" href="./">Home</a>
+    </div>
+    <p class="legal" style="margin-top:2.5rem">
+      Subject to
+      <a href="./legal/TERMS.md">Terms</a> ·
+      <a href="./legal/PRIVACY.md">Privacy</a> ·
+      <a href="./legal/REFUNDS.md">Refunds</a> ·
+      <a href="./legal/AI-DISCLAIMER.md">AI Disclaimer</a>
     </p>
   </main>
 </body>

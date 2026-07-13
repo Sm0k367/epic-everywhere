@@ -4,118 +4,137 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Studio — Epic Everywhere</title>
+  <meta name="theme-color" content="#07080c" />
   <link rel="stylesheet" href="../styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    .studio { padding: var(--space-10) 0 var(--space-16); }
-    .studio-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-8); }
-    .panel {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: var(--space-6);
+    .studio-shell { max-width: 1100px; }
+    .studio-top {
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;
+      justify-content: space-between; margin-bottom: var(--space-6);
     }
-    .panel h2 { font-family: var(--display); font-weight: 400; font-size: var(--text-lg); margin: 0 0 var(--space-4); }
-    .credits-pill {
-      display: inline-flex; gap: .5rem; align-items: center;
-      padding: .35rem .75rem; border-radius: 999px;
-      background: rgba(240,164,110,.12); color: var(--accent); font-weight: 600; font-size: var(--text-sm);
+    .preview-frame {
+      margin-top: var(--space-4); border-radius: var(--radius);
+      border: 1px solid var(--line); overflow: hidden;
+      background: #05060a; min-height: 200px;
+      display: grid; place-items: center;
     }
-    .studio label { display: grid; gap: .4rem; margin-bottom: var(--space-4); font-size: var(--text-sm); color: var(--muted); }
-    .studio input, .studio textarea, .studio select {
-      width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--line);
-      background: var(--bg); color: var(--text); padding: .7rem .85rem; font: inherit;
-    }
-    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); margin-top: var(--space-4); }
-    .gallery a { display: block; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); }
-    .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #111; }
-    .msg { font-size: var(--text-sm); color: var(--muted); min-height: 1.25rem; }
-    .msg.err { color: var(--danger); }
-    .msg.ok { color: var(--ok); }
-    .hidden { display: none !important; }
-    @media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } }
+    .preview-frame img { width: 100%; max-height: 420px; object-fit: contain; }
+    .preview-empty { color: var(--faint); font-size: var(--text-sm); padding: 2rem; text-align: center; }
+    .auth-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    @media (max-width: 700px) { .auth-split { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="../">
-        <strong style="color:var(--text)">Epic Everywhere</strong>
-        <span style="color:var(--muted);font-size:var(--text-xs);margin-left:.5rem">Studio</span>
+        <svg class="logo" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+          <path d="M10 28V12l10 8 10-8v16" fill="none" stroke="#ff8a4c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <strong>Epic Everywhere</strong>
+          <span>Studio</span>
+        </span>
       </a>
-      <nav class="nav">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span></button>
+      <nav class="nav" id="nav">
         <a href="../#pricing">Buy credits</a>
+        <a href="../">Store</a>
         <a href="../legal/">Legal</a>
         <button type="button" class="btn btn-sm btn-ghost" id="logout" hidden>Log out</button>
       </nav>
     </div>
   </header>
 
-  <main class="wrap studio">
-    <p class="eyebrow">Micro-transactions → media</p>
-    <h1 style="font-family:var(--display);font-weight:400;font-size:var(--text-xl);margin:0 0 var(--space-2)">Create with your credits</h1>
-    <p class="lede" style="margin-bottom:var(--space-6)">Pay on the storefront → log in with the <strong>same email</strong> → generate images. Landing &amp; Payment Links stay the same.</p>
+  <main class="wrap page studio-shell" id="main">
+    <div class="studio-top page-hero">
+      <div>
+        <p class="eyebrow">Credits → creation</p>
+        <h1>Make something that stops the scroll.</h1>
+        <p class="lede">Pay on the storefront → sign in with the <strong>same email</strong> → generate. Fast, focused, zero clutter.</p>
+      </div>
+      <span class="credits-pill" id="credits-pill" hidden><span id="credit-count">0</span> credits</span>
+    </div>
 
     <div id="auth-panel" class="panel">
-      <h2>Sign in</h2>
-      <p class="msg">Passwordless code. Use the email from your Stripe receipt.</p>
-      <label>Email
-        <input id="email" type="email" autocomplete="email" placeholder="you@example.com" />
-      </label>
-      <div class="row">
-        <button type="button" class="btn btn-primary" id="send-code">Send code</button>
+      <h2>Enter Studio</h2>
+      <p class="msg">Passwordless code. Use the email from your Stripe receipt for credit packs.</p>
+      <div class="auth-split">
+        <div>
+          <label>Email
+            <input id="email" type="email" autocomplete="email" placeholder="you@example.com" />
+          </label>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="send-code">Send code</button>
+          </div>
+        </div>
+        <div>
+          <label>6-digit code
+            <input id="code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="••••••" maxlength="8" />
+          </label>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="verify">Verify</button>
+          </div>
+        </div>
       </div>
-      <label style="margin-top:var(--space-4)">6-digit code
-        <input id="code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" />
-      </label>
-      <div class="row">
-        <button type="button" class="btn btn-primary" id="verify">Verify &amp; enter studio</button>
-      </div>
-      <p class="msg" id="auth-msg"></p>
+      <p class="msg" id="auth-msg" style="margin-top:1rem"></p>
     </div>
 
     <div id="app-panel" class="studio-grid hidden">
       <section class="panel">
         <div class="row" style="justify-content:space-between;margin-bottom:var(--space-4)">
           <h2 style="margin:0">Generate</h2>
-          <span class="credits-pill"><span id="credit-count">0</span> credits</span>
         </div>
         <p class="msg" id="user-email"></p>
         <label>Prompt
-          <textarea id="prompt" rows="4" placeholder="Cinematic product shot of a glowing laptop on a desk at dusk, soft neon, 35mm"></textarea>
+          <textarea id="prompt" rows="5" placeholder="Cinematic product shot of a glowing laptop on a desk at dusk, soft neon rim light, 35mm film"></textarea>
         </label>
         <label>Quality
           <select id="kind">
-            <option value="image">Standard image (1 credit)</option>
-            <option value="image_hd">HD image (2 credits)</option>
+            <option value="image">Standard · 1 credit</option>
+            <option value="image_hd">HD · 2 credits</option>
           </select>
         </label>
         <div class="row">
-          <button type="button" class="btn btn-primary" id="gen">Generate</button>
-          <a class="btn btn-ghost" href="../#pricing">Buy more credits</a>
+          <button type="button" class="btn btn-primary" id="gen">Generate image</button>
+          <a class="btn btn-ghost" href="../#pricing">Buy credits</a>
         </div>
         <p class="msg" id="gen-msg"></p>
-        <div id="preview" class="hidden" style="margin-top:var(--space-4)">
-          <img id="preview-img" alt="Generated" style="width:100%;border-radius:var(--radius-sm);border:1px solid var(--line)" />
+        <div class="preview-frame" id="preview">
+          <div class="preview-empty" id="preview-empty">Your next image appears here</div>
+          <img id="preview-img" alt="Generated" class="hidden" />
         </div>
       </section>
       <section class="panel">
-        <h2>Your library</h2>
+        <h2>Library</h2>
         <p class="msg">Recent generations for this account.</p>
         <div class="gallery" id="gallery"></div>
       </section>
     </div>
   </main>
 
+  <nav class="dock" aria-label="Quick">
+    <a href="../#pricing">Buy</a>
+    <a href="./" class="is-active">Studio</a>
+    <a href="../">Store</a>
+  </nav>
+
   <footer class="site-footer">
     <p class="legal wrap">
-      © Epic Tech AI · Studio credits from Stripe micros ·
+      © Epic Tech AI · Studio credits from Stripe ·
       <a href="../legal/TERMS.md">Terms</a> ·
-      <a href="../legal/PRIVACY.md">Privacy</a>
+      <a href="../legal/PRIVACY.md">Privacy</a> ·
+      <a href="../legal/AI-DISCLAIMER.md">AI disclaimer</a>
     </p>
   </footer>
-
   <script src="./studio.js"></script>
+  <script>
+    (function(){
+      var n=document.getElementById("nav"), t=document.getElementById("nav-toggle");
+      if(t&&n){ t.onclick=function(){ n.classList.toggle("is-open"); }; }
+    })();
+  </script>
 </body>
 </html>

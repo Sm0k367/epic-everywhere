@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Epic Everywhere</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#07080c" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../">
+        <strong style="color:var(--text)">Epic Everywhere</strong>
+        <span style="color:var(--muted);font-size:var(--text-xs);margin-left:.5rem">Admin</span>
+      </a>
+      <nav class="nav">
+        <a href="../">Store</a>
+        <a href="../studio/">Studio</a>
+        <a href="../#pricing">Catalog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <div class="page-hero">
+      <p class="eyebrow">Command center</p>
+      <h1>Admin everything.</h1>
+      <p class="lede">Users, credits, media library, grants. Key never leaves this browser session storage.</p>
+    </div>
+
+    <div id="gate" class="panel" style="max-width:28rem">
+      <h2>Admin key</h2>
+      <p class="msg">Set <span class="mono">ADMIN_KEY</span> in Vercel env. Enter it here to unlock.</p>
+      <label>Key
+        <input id="admin-key" type="password" autocomplete="current-password" placeholder="••••••••" />
+      </label>
+      <div class="row" style="margin-top:1rem">
+        <button type="button" class="btn btn-primary" id="unlock">Unlock</button>
+      </div>
+      <p class="msg err" id="gate-msg"></p>
+    </div>
+
+    <div id="dash" class="hidden">
+      <div class="admin-stats" id="stats"></div>
+      <div class="admin-grid">
+        <section class="panel">
+          <h2>Grant credits</h2>
+          <label>Email
+            <input id="g-email" type="email" placeholder="user@email.com" />
+          </label>
+          <label>Credits
+            <input id="g-credits" type="number" min="1" max="5000" value="10" />
+          </label>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="grant">Grant</button>
+            <button type="button" class="btn btn-ghost" id="refresh">Refresh data</button>
+          </div>
+          <p class="msg" id="grant-msg"></p>
+        </section>
+        <section class="panel">
+          <h2>Quick links</h2>
+          <div class="row">
+            <a class="btn btn-ghost" href="https://dashboard.stripe.com/payment-links" target="_blank" rel="noopener">Stripe Payment Links</a>
+            <a class="btn btn-ghost" href="https://vercel.com/dashboard" target="_blank" rel="noopener">Vercel</a>
+            <a class="btn btn-ghost" href="../studio/">Studio</a>
+            <a class="btn btn-ghost" href="../">Live store</a>
+          </div>
+          <p class="msg" style="margin-top:1rem">Webhook: <span class="mono">/api/webhook/stripe</span></p>
+        </section>
+      </div>
+
+      <section class="panel" style="margin-top:var(--space-6)">
+        <h2>Users</h2>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr><th>Email</th><th>Credits</th><th>Media</th><th>Updated</th></tr>
+            </thead>
+            <tbody id="users-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:var(--space-6)">
+        <h2>Recent media</h2>
+        <div class="gallery" id="admin-gallery"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="legal wrap">Admin is private · noindex · Epic Tech AI</p>
+  </footer>
+  <script src="./admin.js"></script>
+</body>
+</html>

@@ -4,13 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Epic Everywhere — AI help from 99¢ | Epic Tech AI</title>
-  <meta name="description" content="Full-service AI customer success: chat help now, phone coaching and live video tutoring next. Start with micro-payments. Get everyone using AI for real tasks." />
-  <meta name="theme-color" content="#0c0f14" />
+  <meta name="description" content="Full-service AI customer success + media studio. Chat help, micro-payments, phone & video tutoring roadmap. Create with credits. Blow-your-mind modern UX." />
+  <meta name="theme-color" content="#07080c" />
+  <meta property="og:title" content="Epic Everywhere — AI for everyone" />
+  <meta property="og:description" content="Micro-transactions. Studio media. Human CS. Start at 99¢." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c0f14'/%3E%3Cpath d='M8 22V10l8 6 8-6v12' fill='none' stroke='%23f0a46e' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2307080c'/%3E%3Cpath d='M8 22V10l8 6 8-6v12' fill='none' stroke='%23ff8a4c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -18,23 +21,24 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="/" aria-label="Epic Tech AI home">
-        <svg class="logo" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
-          <rect width="40" height="40" rx="10" fill="currentColor" opacity="0.08"/>
-          <path d="M10 28V12l10 8 10-8v16" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="logo" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+          <rect width="40" height="40" rx="11" fill="currentColor" opacity="0.06"/>
+          <path d="M10 28V12l10 8 10-8v16" fill="none" stroke="#ff8a4c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="brand-text">
           <strong>Epic Tech AI</strong>
           <span>Epic Everywhere</span>
         </span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#how">How it works</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#how">How</a>
         <a href="#pricing">Pricing</a>
-        <a href="#catalog">Catalog (<span id="sku-count">…</span>)</a>
-        <a href="#tutoring">Phone &amp; video</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#media">Media</a>
         <a href="./studio/">Studio</a>
         <a href="./legal/">Legal</a>
-        <a href="#start" class="btn btn-sm">Start</a>
+        <a href="#start" class="btn btn-sm btn-primary nav-cta">Start free</a>
       </nav>
     </div>
   </header>
@@ -43,104 +47,125 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Full-service AI customer success</p>
-          <h1>Get everyone using AI — for real tasks, not vibes.</h1>
+          <p class="eyebrow">Full-service AI · micro-payments · studio</p>
+          <h1>Open it. <span class="grad">Get unstuck.</span> Create something wild.</h1>
           <p class="lede">
-            We don’t leave you with a blank chatbot. Epic Desk helps you
-            <em>do the thing</em>: homework, business, classroom, career —
-            via chat now, phone and live video tutoring next. Start at the price of a coffee.
+            Epic Everywhere is AI customer success that actually finishes the job —
+            then hands you a <em>media studio</em> fueled by the same credits.
+            Chat now. Phone &amp; live video next. Start at the price of a coffee.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#pricing" data-cta="see-pricing">See micro prices</a>
-            <a class="btn btn-ghost" href="#start" data-cta="get-help">Get help now</a>
+            <a class="btn btn-primary" href="#pricing">Browse live prices</a>
+            <a class="btn btn-ghost" href="./studio/">Open Studio</a>
           </div>
           <ul class="trust-row" aria-label="Highlights">
-            <li>From <strong>$0.99</strong></li>
-            <li>Human-gated big charges</li>
-            <li>No key leaks · free-tier AI stack</li>
+            <li><strong id="sku-count">66</strong> products live</li>
+            <li>Stripe buy links</li>
+            <li>Legal-first checkout</li>
+            <li>Credits → images</li>
           </ul>
         </div>
         <aside class="hero-card" aria-label="Service ladder">
-          <p class="card-label">Service ladder</p>
+          <p class="card-label">What you get</p>
           <ol class="ladder">
             <li>
               <span class="step">1</span>
               <div>
-                <strong>Chat CS</strong>
-                <span>Live now · micro pay</span>
+                <strong>Instant buy</strong>
+                <span>Micros from 99¢ — no sales call required</span>
               </div>
             </li>
             <li>
               <span class="step">2</span>
               <div>
-                <strong>Phone coaching</strong>
-                <span>Phase 2 · 15–30 min</span>
+                <strong>Human CS path</strong>
+                <span>Role kits for parents, teachers, founders…</span>
               </div>
             </li>
             <li>
               <span class="step">3</span>
               <div>
-                <strong>Live video tutoring</strong>
-                <span>Phase 3 · screen-share</span>
+                <strong>Studio media</strong>
+                <span>Credits unlock image gen after pay</span>
               </div>
             </li>
             <li>
               <span class="step">4</span>
               <div>
-                <strong>School / ops packages</strong>
-                <span>$750–$2,500 transform</span>
+                <strong>Scale packages</strong>
+                <span>Landing, ops, school pilots when ready</span>
               </div>
             </li>
           </ol>
         </aside>
       </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Micro transactions</span><span>Media studio</span><span>Passwordless auth</span>
+          <span>Stripe live</span><span>Student kits</span><span>Parent safety</span>
+          <span>Founder ops</span><span>School pilots</span><span>Credits ledger</span>
+          <span>Micro transactions</span><span>Media studio</span><span>Passwordless auth</span>
+          <span>Stripe live</span><span>Student kits</span><span>Parent safety</span>
+          <span>Founder ops</span><span>School pilots</span><span>Credits ledger</span>
+        </div>
+      </div>
     </section>
 
     <section class="pain wrap" id="pain">
-      <h2>The pain we solve</h2>
+      <header class="section-head">
+        <p class="eyebrow">The gap we close</p>
+        <h2>Most people never get past the blank prompt.</h2>
+      </header>
       <div class="pain-grid">
         <article>
+          <div class="icon" aria-hidden="true">?</div>
           <h3>Blank prompt fear</h3>
-          <p>People open ChatGPT and freeze. We give job-sized steps, not lectures.</p>
+          <p>We start from your job-to-be-done — not a empty chat box.</p>
         </article>
         <article>
+          <div class="icon" aria-hidden="true">⚡</div>
           <h3>Tool chaos</h3>
-          <p>Twenty apps, zero workflow. We build one reusable path for your life or business.</p>
+          <p>One workflow that sticks. Not twenty half-setup apps.</p>
         </article>
         <article>
+          <div class="icon" aria-hidden="true">◎</div>
           <h3>No human path</h3>
-          <p>Chat loops suck. We add phone and live video when you need someone with you.</p>
+          <div>Chat now. Phone &amp; video tutoring on the roadmap.</div>
         </article>
         <article>
+          <div class="icon" aria-hidden="true">$</div>
           <h3>Big walls</h3>
-          <p>Skip $50/mo guesswork. Micro-transactions prove value first.</p>
+          <p>Micro-transactions prove value before retainers.</p>
         </article>
       </div>
     </section>
 
     <section class="how" id="how">
       <div class="wrap">
-        <h2>How it works</h2>
+        <header class="section-head">
+          <p class="eyebrow">Flow</p>
+          <h2>Ridiculously easy navigation.</h2>
+        </header>
         <div class="how-grid">
           <div class="how-step">
             <span class="num">01</span>
-            <h3>Tell us the job</h3>
-            <p>One line: school, work, business, creative, or life admin.</p>
+            <h3>Pick a pack</h3>
+            <p>Filter by life domain. Tap Buy. Stripe handles the rest.</p>
           </div>
           <div class="how-step">
             <span class="num">02</span>
-            <h3>Do it with you</h3>
-            <p>Chat CS runs role kits (parent, student, teacher, founder). No fluff.</p>
+            <h3>Same email</h3>
+            <p>Studio login uses your receipt email — credits land there.</p>
           </div>
           <div class="how-step">
             <span class="num">03</span>
-            <h3>Pay only for depth</h3>
-            <p>Micro unlocks packs &amp; sessions. Packages for full builds.</p>
+            <h3>Create or get help</h3>
+            <p>Generate media or message CS for human-guided setups.</p>
           </div>
           <div class="how-step">
             <span class="num">04</span>
             <h3>Level up</h3>
-            <p>Phone → video tutor → school/ops pilots when you’re ready.</p>
+            <p>Packages when you’re ready to productize AI for your org.</p>
           </div>
         </div>
       </div>
@@ -148,17 +173,16 @@
 
     <section class="pricing wrap" id="pricing">
       <header class="section-head">
-        <h2>Micro first. Packages when you scale.</h2>
-        <p>
-          Prices in USD. Full catalog lives below.
-          Buttons use live <strong>Stripe Payment Links</strong> when seeded —
-          otherwise they open the start form (legal policies still apply).
-        </p>
+        <p class="eyebrow">Live Stripe catalog</p>
+        <h2>Micro first. Media next. Packages when you scale.</h2>
+        <p>Every Buy button is a real Payment Link. Legal applies before you pay.</p>
         <p id="link-status" class="link-status" role="status"></p>
       </header>
 
-      <h3 class="tier-title">Featured</h3>
-      <div class="price-grid" id="featured-grid"></div>
+      <div id="media">
+        <h3 class="tier-title">Featured · mind-blow starters</h3>
+        <div class="price-grid" id="featured-grid"></div>
+      </div>
 
       <div id="catalog">
         <h3 class="tier-title">Micro · filter by life domain</h3>
@@ -176,19 +200,22 @@
     <section class="tutoring" id="tutoring">
       <div class="wrap tutoring-inner">
         <div>
-          <p class="eyebrow">Coming online in phases</p>
+          <p class="eyebrow">Roadmap · not vapor</p>
           <h2>Phone calls &amp; live video tutoring</h2>
           <p class="lede-sm">
-            Amazing when you need a human path: we screen-share, complete <em>your</em> task,
-            and leave you a reusable workflow. Chat CS ships first so cash and quality lead the roadmap.
+            When you need a human path: we screen-share, finish <em>your</em> task,
+            and leave a reusable workflow. Chat + Studio ship first so cash and quality lead.
           </p>
           <ul class="check">
-            <li>Phone 15m / 30m coaching (Twilio Phase 2)</li>
-            <li>Live video 25m / 50m tutoring (Daily/LiveKit Phase 3)</li>
-            <li>Group class seats for “AI for everyone”</li>
-            <li>School-safe consent for minors</li>
+            <li>Phone 15 / 30 / 60 coaching (Phase 2)</li>
+            <li>Live video 25 / 50 / 90 tutoring (Phase 3)</li>
+            <li>Group class seats · school-safe consent</li>
+            <li>Same credits &amp; account system</li>
           </ul>
-          <a class="btn btn-primary" href="#start">Join waitlist / get chat help now</a>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#start">Get on the list</a>
+            <a class="btn btn-ghost" href="./studio/">Use Studio now</a>
+          </div>
         </div>
         <div class="tutoring-panel">
           <p class="card-label">Session flow</p>
@@ -205,9 +232,10 @@
 
     <section class="start wrap" id="start">
       <div class="start-card">
-        <h2>Start CS now</h2>
-        <p>Paid micros? Include the SKU in your message. Free first touch is fine for one clear job.</p>
-        <form class="start-form" id="start-form" action="mailto:epictechai@gmail.com" method="get" enctype="text/plain">
+        <p class="eyebrow">Human CS</p>
+        <h2>Tell us one job.</h2>
+        <p class="lede" style="margin-bottom:0">Paid micros? Include the SKU. Free first touch is fine for one clear goal.</p>
+        <form class="start-form" id="start-form">
           <label>
             Name
             <input name="name" type="text" autocomplete="name" required placeholder="Alex" />
@@ -224,6 +252,7 @@
               <option>Parent</option>
               <option>Teacher</option>
               <option>Founder / SMB</option>
+              <option>Creator</option>
               <option>Other</option>
             </select>
           </label>
@@ -233,7 +262,7 @@
           </label>
           <label>
             SKU (optional)
-            <input name="sku" type="text" list="sku-list" placeholder="cs-text-burst / workflow-fix / …" />
+            <input name="sku" type="text" list="sku-list" placeholder="media-pack-20 / cs-text-burst / …" />
             <datalist id="sku-list"></datalist>
           </label>
           <label class="check-agree">
@@ -245,10 +274,18 @@
         <p class="alt-contact">
           Or DM <a href="https://x.com/EpicTechAI" rel="noopener noreferrer" target="_blank">@EpicTechAI</a>
           · <a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a>
+          · <a href="./studio/">Studio login</a>
         </p>
       </div>
     </section>
   </main>
+
+  <nav class="dock" aria-label="Quick nav">
+    <a href="#pricing">Buy</a>
+    <a href="./studio/">Studio</a>
+    <a href="#start">Help</a>
+    <a href="./legal/">Legal</a>
+  </nav>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
@@ -260,6 +297,8 @@
         <a href="https://x.com/EpicTechAI" rel="noopener noreferrer" target="_blank">X</a>
         <a href="mailto:epictechai@gmail.com">Email</a>
         <a href="#pricing">Pricing</a>
+        <a href="./studio/">Studio</a>
+        <a href="./admin/">Admin</a>
         <a href="./legal/">Legal</a>
         <a href="./legal/TERMS.md">Terms</a>
         <a href="./legal/PRIVACY.md">Privacy</a>
