@@ -5,65 +5,555 @@
   "product": "Epic Everywhere",
   "success_url_note": "Set Stripe Payment Link after_completion redirect to your deployed success.html",
   "skus": [
-    {"id": "human-ticket", "layer": "micro", "vertical": "community", "name": "Human / entry ticket", "amount_cents": 99, "blurb": "Low-friction entry pass.", "featured": false},
-    {"id": "tip-3", "layer": "micro", "vertical": "community", "name": "Support tip $3", "amount_cents": 300, "blurb": "Tip the CS desk — keeps free guidance alive."},
-    {"id": "tip-5", "layer": "micro", "vertical": "community", "name": "Support tip $5", "amount_cents": 500, "blurb": "Bigger tip for deeper free help."},
-    {"id": "ai-starter-pack", "layer": "micro", "vertical": "general", "name": "AI Starter Pack", "amount_cents": 299, "blurb": "10 guided prompts + personal starter plan."},
-    {"id": "ai-starter-pack-pro", "layer": "micro", "vertical": "general", "name": "AI Starter Pack Pro", "amount_cents": 799, "blurb": "30 prompts + role plan + 48h text follow-up."},
-    {"id": "cs-text-burst", "layer": "micro", "vertical": "general", "name": "Text CS Burst (24h)", "amount_cents": 499, "blurb": "24h text customer success on your setup.", "featured": true},
-    {"id": "cs-text-burst-72", "layer": "micro", "vertical": "general", "name": "Text CS Burst (72h)", "amount_cents": 999, "blurb": "3-day text CS window for harder setups."},
-    {"id": "workflow-fix", "layer": "micro", "vertical": "general", "name": "Workflow Fix", "amount_cents": 900, "blurb": "One pain → one reusable AI workflow.", "featured": true},
-    {"id": "workflow-fix-3", "layer": "micro", "vertical": "general", "name": "Workflow Fix Bundle (3)", "amount_cents": 2400, "blurb": "Three workflows for home, work, and side project."},
-    {"id": "credit-5", "layer": "micro", "vertical": "credits", "name": "Credit Pack 5", "amount_cents": 500, "blurb": "5 credits toward text CS."},
-    {"id": "credit-10", "layer": "micro", "vertical": "credits", "name": "Credit Pack 10", "amount_cents": 1000, "blurb": "10 credits toward text CS / future voice."},
-    {"id": "credit-25", "layer": "micro", "vertical": "credits", "name": "Credit Pack 25", "amount_cents": 2200, "blurb": "25 credits — best micro value."},
-    {"id": "credit-50", "layer": "micro", "vertical": "credits", "name": "Credit Pack 50", "amount_cents": 4000, "blurb": "50 credits for power users."},
-    {"id": "prompt-audit", "layer": "micro", "vertical": "general", "name": "Prompt Audit", "amount_cents": 700, "blurb": "We rewrite your 5 worst prompts into winners."},
-    {"id": "tool-stack-map", "layer": "micro", "vertical": "general", "name": "Tool Stack Map", "amount_cents": 1200, "blurb": "Which AI tools you actually need — one page plan."},
-    {"id": "student-homework-kit", "layer": "micro", "vertical": "student", "name": "Student Homework Kit", "amount_cents": 499, "blurb": "Subject prompts + integrity-safe study method."},
-    {"id": "student-essay-coach", "layer": "micro", "vertical": "student", "name": "Essay Coach Pack", "amount_cents": 900, "blurb": "Outline, thesis, revision loop — you still write it."},
-    {"id": "student-stem-pack", "layer": "micro", "vertical": "student", "name": "STEM Study Pack", "amount_cents": 900, "blurb": "Math/science problem-solving with AI, step-by-step."},
-    {"id": "student-college-apps", "layer": "micro", "vertical": "student", "name": "College Apps AI Kit", "amount_cents": 1500, "blurb": "Brainstorm + structure essays ethically."},
-    {"id": "parent-safety-kit", "layer": "micro", "vertical": "parent", "name": "Parent AI Safety Kit", "amount_cents": 499, "blurb": "Family rules, tools, and homework boundaries."},
-    {"id": "parent-homework-coach", "layer": "micro", "vertical": "parent", "name": "Parent Homework Coach", "amount_cents": 900, "blurb": "Help your kid use AI without doing it for them."},
-    {"id": "parent-device-setup", "layer": "micro", "vertical": "parent", "name": "Family Device AI Setup", "amount_cents": 1200, "blurb": "Phone/laptop AI apps configured for the household."},
-    {"id": "teacher-classroom-kit", "layer": "micro", "vertical": "teacher", "name": "Teacher Classroom Kit", "amount_cents": 900, "blurb": "One week of AI lesson assist prompts + policy notes."},
-    {"id": "teacher-rubric-pack", "layer": "micro", "vertical": "teacher", "name": "Rubric & Feedback Pack", "amount_cents": 1200, "blurb": "Faster feedback loops that stay human-led."},
-    {"id": "teacher-pd-micro", "layer": "micro", "vertical": "teacher", "name": "Teacher PD Micro", "amount_cents": 1900, "blurb": "90-min async PD plan you can run with peers."},
-    {"id": "founder-offer-kit", "layer": "micro", "vertical": "founder", "name": "Founder Offer Kit", "amount_cents": 1500, "blurb": "Positioning + offer page outline with AI."},
-    {"id": "founder-outreach-pack", "layer": "micro", "vertical": "founder", "name": "Outreach Pack", "amount_cents": 1200, "blurb": "20 personalized outreach templates + system."},
-    {"id": "founder-support-bot-plan", "layer": "micro", "vertical": "founder", "name": "Support Bot Plan", "amount_cents": 1900, "blurb": "CS macros + AI assist design for your product."},
-    {"id": "smb-email-overhaul", "layer": "micro", "vertical": "smb", "name": "Email Overhaul", "amount_cents": 900, "blurb": "Rewrite your core business emails with AI."},
-    {"id": "smb-review-replies", "layer": "micro", "vertical": "smb", "name": "Review Reply Pack", "amount_cents": 700, "blurb": "Google/Yelp reply system for local business."},
-    {"id": "smb-sop-pack", "layer": "micro", "vertical": "smb", "name": "SOP Starter Pack", "amount_cents": 1500, "blurb": "3 SOPs drafted with AI for your ops."},
-    {"id": "creator-content-engine", "layer": "micro", "vertical": "creator", "name": "Content Engine Micro", "amount_cents": 1200, "blurb": "7-day content system for X/Shorts/LinkedIn."},
-    {"id": "creator-script-pack", "layer": "micro", "vertical": "creator", "name": "Script Pack (10)", "amount_cents": 900, "blurb": "Ten short-form scripts in your voice."},
-    {"id": "career-resume-pack", "layer": "micro", "vertical": "career", "name": "Resume + LinkedIn Pack", "amount_cents": 1500, "blurb": "AI-assisted resume + profile rewrite."},
-    {"id": "career-interview-kit", "layer": "micro", "vertical": "career", "name": "Interview Kit", "amount_cents": 1200, "blurb": "STAR stories + mock questions with AI."},
-    {"id": "career-portfolio-plan", "layer": "micro", "vertical": "career", "name": "Portfolio Plan", "amount_cents": 900, "blurb": "Ship a portfolio narrative in one weekend."},
-    {"id": "senior-basics", "layer": "micro", "vertical": "senior", "name": "AI Basics for Adults", "amount_cents": 499, "blurb": "Patient, large-print style starter for non-tech adults."},
-    {"id": "senior-phone-prep", "layer": "micro", "vertical": "senior", "name": "Phone Session Prep", "amount_cents": 300, "blurb": "Prep worksheet before a phone coaching call."},
-    {"id": "phone-15", "layer": "session", "vertical": "live", "name": "Phone coaching 15m", "amount_cents": 1500, "blurb": "Guided AI setup call.", "phase": "Phase 2"},
-    {"id": "phone-30", "layer": "session", "vertical": "live", "name": "Phone coaching 30m", "amount_cents": 2900, "blurb": "Deep-dive coaching call.", "phase": "Phase 2", "featured": true},
-    {"id": "phone-60", "layer": "session", "vertical": "live", "name": "Phone coaching 60m", "amount_cents": 5500, "blurb": "Full-hour implementation call.", "phase": "Phase 2"},
-    {"id": "video-tutor-25", "layer": "session", "vertical": "live", "name": "Live video tutor 25m", "amount_cents": 2500, "blurb": "Screen-share. Do the task together.", "phase": "Phase 3", "featured": true},
-    {"id": "video-tutor-50", "layer": "session", "vertical": "live", "name": "Live video tutor 50m", "amount_cents": 4900, "blurb": "Project session with reusable pack.", "phase": "Phase 3"},
-    {"id": "video-tutor-90", "layer": "session", "vertical": "live", "name": "Live video tutor 90m", "amount_cents": 8900, "blurb": "Deep build session.", "phase": "Phase 3"},
-    {"id": "class-seat", "layer": "session", "vertical": "live", "name": "Group class seat", "amount_cents": 1200, "blurb": "Weekly AI-for-everyone class.", "phase": "Phase 3"},
-    {"id": "class-seat-4pack", "layer": "session", "vertical": "live", "name": "Group class 4-pack", "amount_cents": 4000, "blurb": "Four class seats.", "phase": "Phase 3"},
-    {"id": "office-hours-dropin", "layer": "session", "vertical": "live", "name": "Office hours drop-in", "amount_cents": 1900, "blurb": "Join next open office hours block.", "phase": "Phase 2"},
-    {"id": "pilot-landing", "layer": "package", "vertical": "build", "name": "Pilot Landing", "amount_cents": 75000, "blurb": "One-page site + form on Vercel.", "featured": true},
-    {"id": "pilot-landing-plus", "layer": "package", "vertical": "build", "name": "Pilot Landing Plus", "amount_cents": 125000, "blurb": "Landing + Stripe micros + basic analytics."},
-    {"id": "agent-ops-setup", "layer": "package", "vertical": "build", "name": "Agent Ops Setup", "amount_cents": 150000, "blurb": "Slack + Stripe + agent ops wired.", "featured": true},
-    {"id": "agent-ops-setup-pro", "layer": "package", "vertical": "build", "name": "Agent Ops Setup Pro", "amount_cents": 350000, "blurb": "Ops setup + 2 custom workflows + 30d CS."},
-    {"id": "school-pilot", "layer": "package", "vertical": "education", "name": "School Pilot", "amount_cents": 250000, "blurb": "Classroom AI adoption pilot.", "featured": true},
-    {"id": "school-pilot-district", "layer": "package", "vertical": "education", "name": "School Pilot (multi-site)", "amount_cents": 750000, "blurb": "Multi-site pilot + teacher PD outline."},
-    {"id": "creator-brand-kit", "layer": "package", "vertical": "creator", "name": "Creator Brand Kit Build", "amount_cents": 99000, "blurb": "Positioning, content system, 30-day calendar."},
-    {"id": "smb-ai-ops", "layer": "package", "vertical": "smb", "name": "SMB AI Ops Sprint", "amount_cents": 199000, "blurb": "2-week ops automation sprint for local/online SMB."},
-    {"id": "career-sprint", "layer": "package", "vertical": "career", "name": "Career Sprint", "amount_cents": 49900, "blurb": "2-week job search system with AI."},
-    {"id": "custom-work-deposit", "layer": "package", "vertical": "build", "name": "Custom Work Deposit", "amount_cents": 50000, "blurb": "Kickoff deposit for scoped custom work."},
-    {"id": "retainer-lite", "layer": "package", "vertical": "retain", "name": "Retainer Lite (mo)", "amount_cents": 49900, "blurb": "Monthly async CS + 2 workflows.", "recurring": "month"},
-    {"id": "retainer-standard", "layer": "package", "vertical": "retain", "name": "Retainer Standard (mo)", "amount_cents": 149900, "blurb": "Monthly ops + priority CS.", "recurring": "month"},
-    {"id": "retainer-school", "layer": "package", "vertical": "retain", "name": "School Retainer (mo)", "amount_cents": 299900, "blurb": "Ongoing classroom AI support.", "recurring": "month"}
+    {
+      "id": "human-ticket",
+      "layer": "micro",
+      "vertical": "community",
+      "name": "Human / entry ticket",
+      "amount_cents": 99,
+      "blurb": "Low-friction entry pass.",
+      "featured": false
+    },
+    {
+      "id": "tip-3",
+      "layer": "micro",
+      "vertical": "community",
+      "name": "Support tip $3",
+      "amount_cents": 300,
+      "blurb": "Tip the CS desk \u2014 keeps free guidance alive."
+    },
+    {
+      "id": "tip-5",
+      "layer": "micro",
+      "vertical": "community",
+      "name": "Support tip $5",
+      "amount_cents": 500,
+      "blurb": "Bigger tip for deeper free help."
+    },
+    {
+      "id": "ai-starter-pack",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "AI Starter Pack",
+      "amount_cents": 299,
+      "blurb": "10 guided prompts + personal starter plan."
+    },
+    {
+      "id": "ai-starter-pack-pro",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "AI Starter Pack Pro",
+      "amount_cents": 799,
+      "blurb": "30 prompts + role plan + 48h text follow-up."
+    },
+    {
+      "id": "cs-text-burst",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Text CS Burst (24h)",
+      "amount_cents": 499,
+      "blurb": "24h text customer success on your setup.",
+      "featured": true
+    },
+    {
+      "id": "cs-text-burst-72",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Text CS Burst (72h)",
+      "amount_cents": 999,
+      "blurb": "3-day text CS window for harder setups."
+    },
+    {
+      "id": "workflow-fix",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Workflow Fix",
+      "amount_cents": 900,
+      "blurb": "One pain \u2192 one reusable AI workflow.",
+      "featured": true
+    },
+    {
+      "id": "workflow-fix-3",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Workflow Fix Bundle (3)",
+      "amount_cents": 2400,
+      "blurb": "Three workflows for home, work, and side project."
+    },
+    {
+      "id": "credit-5",
+      "layer": "micro",
+      "vertical": "credits",
+      "name": "Credit Pack 5",
+      "amount_cents": 500,
+      "blurb": "5 credits toward text CS."
+    },
+    {
+      "id": "credit-10",
+      "layer": "micro",
+      "vertical": "credits",
+      "name": "Credit Pack 10",
+      "amount_cents": 1000,
+      "blurb": "10 credits toward text CS / future voice."
+    },
+    {
+      "id": "credit-25",
+      "layer": "micro",
+      "vertical": "credits",
+      "name": "Credit Pack 25",
+      "amount_cents": 2200,
+      "blurb": "25 credits \u2014 best micro value."
+    },
+    {
+      "id": "credit-50",
+      "layer": "micro",
+      "vertical": "credits",
+      "name": "Credit Pack 50",
+      "amount_cents": 4000,
+      "blurb": "50 credits for power users."
+    },
+    {
+      "id": "prompt-audit",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Prompt Audit",
+      "amount_cents": 700,
+      "blurb": "We rewrite your 5 worst prompts into winners."
+    },
+    {
+      "id": "tool-stack-map",
+      "layer": "micro",
+      "vertical": "general",
+      "name": "Tool Stack Map",
+      "amount_cents": 1200,
+      "blurb": "Which AI tools you actually need \u2014 one page plan."
+    },
+    {
+      "id": "student-homework-kit",
+      "layer": "micro",
+      "vertical": "student",
+      "name": "Student Homework Kit",
+      "amount_cents": 499,
+      "blurb": "Subject prompts + integrity-safe study method."
+    },
+    {
+      "id": "student-essay-coach",
+      "layer": "micro",
+      "vertical": "student",
+      "name": "Essay Coach Pack",
+      "amount_cents": 900,
+      "blurb": "Outline, thesis, revision loop \u2014 you still write it."
+    },
+    {
+      "id": "student-stem-pack",
+      "layer": "micro",
+      "vertical": "student",
+      "name": "STEM Study Pack",
+      "amount_cents": 900,
+      "blurb": "Math/science problem-solving with AI, step-by-step."
+    },
+    {
+      "id": "student-college-apps",
+      "layer": "micro",
+      "vertical": "student",
+      "name": "College Apps AI Kit",
+      "amount_cents": 1500,
+      "blurb": "Brainstorm + structure essays ethically."
+    },
+    {
+      "id": "parent-safety-kit",
+      "layer": "micro",
+      "vertical": "parent",
+      "name": "Parent AI Safety Kit",
+      "amount_cents": 499,
+      "blurb": "Family rules, tools, and homework boundaries."
+    },
+    {
+      "id": "parent-homework-coach",
+      "layer": "micro",
+      "vertical": "parent",
+      "name": "Parent Homework Coach",
+      "amount_cents": 900,
+      "blurb": "Help your kid use AI without doing it for them."
+    },
+    {
+      "id": "parent-device-setup",
+      "layer": "micro",
+      "vertical": "parent",
+      "name": "Family Device AI Setup",
+      "amount_cents": 1200,
+      "blurb": "Phone/laptop AI apps configured for the household."
+    },
+    {
+      "id": "teacher-classroom-kit",
+      "layer": "micro",
+      "vertical": "teacher",
+      "name": "Teacher Classroom Kit",
+      "amount_cents": 900,
+      "blurb": "One week of AI lesson assist prompts + policy notes."
+    },
+    {
+      "id": "teacher-rubric-pack",
+      "layer": "micro",
+      "vertical": "teacher",
+      "name": "Rubric & Feedback Pack",
+      "amount_cents": 1200,
+      "blurb": "Faster feedback loops that stay human-led."
+    },
+    {
+      "id": "teacher-pd-micro",
+      "layer": "micro",
+      "vertical": "teacher",
+      "name": "Teacher PD Micro",
+      "amount_cents": 1900,
+      "blurb": "90-min async PD plan you can run with peers."
+    },
+    {
+      "id": "founder-offer-kit",
+      "layer": "micro",
+      "vertical": "founder",
+      "name": "Founder Offer Kit",
+      "amount_cents": 1500,
+      "blurb": "Positioning + offer page outline with AI."
+    },
+    {
+      "id": "founder-outreach-pack",
+      "layer": "micro",
+      "vertical": "founder",
+      "name": "Outreach Pack",
+      "amount_cents": 1200,
+      "blurb": "20 personalized outreach templates + system."
+    },
+    {
+      "id": "founder-support-bot-plan",
+      "layer": "micro",
+      "vertical": "founder",
+      "name": "Support Bot Plan",
+      "amount_cents": 1900,
+      "blurb": "CS macros + AI assist design for your product."
+    },
+    {
+      "id": "smb-email-overhaul",
+      "layer": "micro",
+      "vertical": "smb",
+      "name": "Email Overhaul",
+      "amount_cents": 900,
+      "blurb": "Rewrite your core business emails with AI."
+    },
+    {
+      "id": "smb-review-replies",
+      "layer": "micro",
+      "vertical": "smb",
+      "name": "Review Reply Pack",
+      "amount_cents": 700,
+      "blurb": "Google/Yelp reply system for local business."
+    },
+    {
+      "id": "smb-sop-pack",
+      "layer": "micro",
+      "vertical": "smb",
+      "name": "SOP Starter Pack",
+      "amount_cents": 1500,
+      "blurb": "3 SOPs drafted with AI for your ops."
+    },
+    {
+      "id": "creator-content-engine",
+      "layer": "micro",
+      "vertical": "creator",
+      "name": "Content Engine Micro",
+      "amount_cents": 1200,
+      "blurb": "7-day content system for X/Shorts/LinkedIn."
+    },
+    {
+      "id": "creator-script-pack",
+      "layer": "micro",
+      "vertical": "creator",
+      "name": "Script Pack (10)",
+      "amount_cents": 900,
+      "blurb": "Ten short-form scripts in your voice."
+    },
+    {
+      "id": "career-resume-pack",
+      "layer": "micro",
+      "vertical": "career",
+      "name": "Resume + LinkedIn Pack",
+      "amount_cents": 1500,
+      "blurb": "AI-assisted resume + profile rewrite."
+    },
+    {
+      "id": "career-interview-kit",
+      "layer": "micro",
+      "vertical": "career",
+      "name": "Interview Kit",
+      "amount_cents": 1200,
+      "blurb": "STAR stories + mock questions with AI."
+    },
+    {
+      "id": "career-portfolio-plan",
+      "layer": "micro",
+      "vertical": "career",
+      "name": "Portfolio Plan",
+      "amount_cents": 900,
+      "blurb": "Ship a portfolio narrative in one weekend."
+    },
+    {
+      "id": "senior-basics",
+      "layer": "micro",
+      "vertical": "senior",
+      "name": "AI Basics for Adults",
+      "amount_cents": 499,
+      "blurb": "Patient, large-print style starter for non-tech adults."
+    },
+    {
+      "id": "senior-phone-prep",
+      "layer": "micro",
+      "vertical": "senior",
+      "name": "Phone Session Prep",
+      "amount_cents": 300,
+      "blurb": "Prep worksheet before a phone coaching call."
+    },
+    {
+      "id": "phone-15",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Phone coaching 15m",
+      "amount_cents": 1500,
+      "blurb": "Guided AI setup call.",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "phone-30",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Phone coaching 30m",
+      "amount_cents": 2900,
+      "blurb": "Deep-dive coaching call.",
+      "phase": "Phase 2",
+      "featured": true
+    },
+    {
+      "id": "phone-60",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Phone coaching 60m",
+      "amount_cents": 5500,
+      "blurb": "Full-hour implementation call.",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "video-tutor-25",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Live video tutor 25m",
+      "amount_cents": 2500,
+      "blurb": "Screen-share. Do the task together.",
+      "phase": "Phase 3",
+      "featured": true
+    },
+    {
+      "id": "video-tutor-50",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Live video tutor 50m",
+      "amount_cents": 4900,
+      "blurb": "Project session with reusable pack.",
+      "phase": "Phase 3"
+    },
+    {
+      "id": "video-tutor-90",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Live video tutor 90m",
+      "amount_cents": 8900,
+      "blurb": "Deep build session.",
+      "phase": "Phase 3"
+    },
+    {
+      "id": "class-seat",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Group class seat",
+      "amount_cents": 1200,
+      "blurb": "Weekly AI-for-everyone class.",
+      "phase": "Phase 3"
+    },
+    {
+      "id": "class-seat-4pack",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Group class 4-pack",
+      "amount_cents": 4000,
+      "blurb": "Four class seats.",
+      "phase": "Phase 3"
+    },
+    {
+      "id": "office-hours-dropin",
+      "layer": "session",
+      "vertical": "live",
+      "name": "Office hours drop-in",
+      "amount_cents": 1900,
+      "blurb": "Join next open office hours block.",
+      "phase": "Phase 2"
+    },
+    {
+      "id": "pilot-landing",
+      "layer": "package",
+      "vertical": "build",
+      "name": "Pilot Landing",
+      "amount_cents": 75000,
+      "blurb": "One-page site + form on Vercel.",
+      "featured": true
+    },
+    {
+      "id": "pilot-landing-plus",
+      "layer": "package",
+      "vertical": "build",
+      "name": "Pilot Landing Plus",
+      "amount_cents": 125000,
+      "blurb": "Landing + Stripe micros + basic analytics."
+    },
+    {
+      "id": "agent-ops-setup",
+      "layer": "package",
+      "vertical": "build",
+      "name": "Agent Ops Setup",
+      "amount_cents": 150000,
+      "blurb": "Slack + Stripe + agent ops wired.",
+      "featured": true
+    },
+    {
+      "id": "agent-ops-setup-pro",
+      "layer": "package",
+      "vertical": "build",
+      "name": "Agent Ops Setup Pro",
+      "amount_cents": 350000,
+      "blurb": "Ops setup + 2 custom workflows + 30d CS."
+    },
+    {
+      "id": "school-pilot",
+      "layer": "package",
+      "vertical": "education",
+      "name": "School Pilot",
+      "amount_cents": 250000,
+      "blurb": "Classroom AI adoption pilot.",
+      "featured": true
+    },
+    {
+      "id": "school-pilot-district",
+      "layer": "package",
+      "vertical": "education",
+      "name": "School Pilot (multi-site)",
+      "amount_cents": 750000,
+      "blurb": "Multi-site pilot + teacher PD outline."
+    },
+    {
+      "id": "creator-brand-kit",
+      "layer": "package",
+      "vertical": "creator",
+      "name": "Creator Brand Kit Build",
+      "amount_cents": 99000,
+      "blurb": "Positioning, content system, 30-day calendar."
+    },
+    {
+      "id": "smb-ai-ops",
+      "layer": "package",
+      "vertical": "smb",
+      "name": "SMB AI Ops Sprint",
+      "amount_cents": 199000,
+      "blurb": "2-week ops automation sprint for local/online SMB."
+    },
+    {
+      "id": "career-sprint",
+      "layer": "package",
+      "vertical": "career",
+      "name": "Career Sprint",
+      "amount_cents": 49900,
+      "blurb": "2-week job search system with AI."
+    },
+    {
+      "id": "custom-work-deposit",
+      "layer": "package",
+      "vertical": "build",
+      "name": "Custom Work Deposit",
+      "amount_cents": 50000,
+      "blurb": "Kickoff deposit for scoped custom work."
+    },
+    {
+      "id": "retainer-lite",
+      "layer": "package",
+      "vertical": "retain",
+      "name": "Retainer Lite (mo)",
+      "amount_cents": 49900,
+      "blurb": "Monthly async CS + 2 workflows.",
+      "recurring": "month"
+    },
+    {
+      "id": "retainer-standard",
+      "layer": "package",
+      "vertical": "retain",
+      "name": "Retainer Standard (mo)",
+      "amount_cents": 149900,
+      "blurb": "Monthly ops + priority CS.",
+      "recurring": "month"
+    },
+    {
+      "id": "retainer-school",
+      "layer": "package",
+      "vertical": "retain",
+      "name": "School Retainer (mo)",
+      "amount_cents": 299900,
+      "blurb": "Ongoing classroom AI support.",
+      "recurring": "month"
+    },
+    {
+      "id": "media-pack-5",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 5",
+      "amount_cents": 500,
+      "blurb": "5 image credits for Studio.",
+      "featured": true
+    },
+    {
+      "id": "media-pack-20",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 20",
+      "amount_cents": 1500,
+      "blurb": "20 image credits \u2014 best starter media pack.",
+      "featured": true
+    },
+    {
+      "id": "media-pack-50",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 50",
+      "amount_cents": 3000,
+      "blurb": "50 image credits for creators."
+    },
+    {
+      "id": "media-pack-100",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 100",
+      "amount_cents": 5000,
+      "blurb": "100 image credits \u2014 power pack."
+    },
+    {
+      "id": "image-single",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Single image credit",
+      "amount_cents": 150,
+      "blurb": "One Studio image generation."
+    },
+    {
+      "id": "image-burst-10",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Image burst 10",
+      "amount_cents": 900,
+      "blurb": "10 generations in one pack."
+    }
   ]
 }

@@ -10,7 +10,7 @@ window.EPIC_CONFIG = {
   "successPath": "./success.html",
   "legalPath": "./legal/",
   "catalogVersion": "2026-07-13",
-  "skuCount": 60,
+  "skuCount": 66,
   "skus": [
     {
       "id": "human-ticket",
@@ -630,6 +630,68 @@ window.EPIC_CONFIG = {
       "blurb": "Ongoing classroom AI support.",
       "paymentLink": "https://buy.stripe.com/28E8wQ7MB91Y44YgU20Fi1a",
       "recurring": "month"
+    },
+    {
+      "id": "media-pack-5",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 5",
+      "price": "$5",
+      "amount_cents": 500,
+      "blurb": "5 image credits for Studio.",
+      "paymentLink": "https://buy.stripe.com/bJe9AU2shemi44YbzI0Fi1b",
+      "featured": true
+    },
+    {
+      "id": "media-pack-20",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 20",
+      "price": "$15",
+      "amount_cents": 1500,
+      "blurb": "20 image credits \u2014 best starter media pack.",
+      "paymentLink": "https://buy.stripe.com/14AcN63wlguq9pi9rA0Fi1c",
+      "featured": true
+    },
+    {
+      "id": "media-pack-50",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 50",
+      "price": "$30",
+      "amount_cents": 3000,
+      "blurb": "50 image credits for creators.",
+      "paymentLink": "https://buy.stripe.com/4gM4gAc2Ra627hafPY0Fi1d"
+    },
+    {
+      "id": "media-pack-100",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Media Pack 100",
+      "price": "$50",
+      "amount_cents": 5000,
+      "blurb": "100 image credits \u2014 power pack.",
+      "paymentLink": "https://buy.stripe.com/28E8wQff37XU8leeLU0Fi1e"
+    },
+    {
+      "id": "image-single",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Single image credit",
+      "price": "$1.50",
+      "amount_cents": 150,
+      "blurb": "One Studio image generation.",
+      "paymentLink": "https://buy.stripe.com/bJe4gA1od1zwdFy6fo0Fi1f"
+    },
+    {
+      "id": "image-burst-10",
+      "layer": "micro",
+      "vertical": "media",
+      "name": "Image burst 10",
+      "price": "$9",
+      "amount_cents": 900,
+      "blurb": "10 generations in one pack.",
+      "paymentLink": "https://buy.stripe.com/4gM5kE3wl3HE0SMfPY0Fi1g"
     }
   ]
 };

@@ -663,6 +663,72 @@
       "layer": "package",
       "vertical": "retain",
       "phase": null
+    },
+    "media-pack-5": {
+      "name": "Media Pack 5",
+      "amount_cents": 500,
+      "product_id": "prod_UsIm5UcTjFrMyL",
+      "price_id": "price_1TsYB8K5abcrIcyel96DFaMS",
+      "payment_link": "https://buy.stripe.com/bJe9AU2shemi44YbzI0Fi1b",
+      "payment_link_id": "plink_1TsYB9K5abcrIcyefnZ3f80q",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
+    },
+    "media-pack-20": {
+      "name": "Media Pack 20",
+      "amount_cents": 1500,
+      "product_id": "prod_UsImWsVgeCxJyM",
+      "price_id": "price_1TsYB9K5abcrIcyeGdZuYhST",
+      "payment_link": "https://buy.stripe.com/14AcN63wlguq9pi9rA0Fi1c",
+      "payment_link_id": "plink_1TsYB9K5abcrIcyeRXj86nZU",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
+    },
+    "media-pack-50": {
+      "name": "Media Pack 50",
+      "amount_cents": 3000,
+      "product_id": "prod_UsImPtHzpKz6J7",
+      "price_id": "price_1TsYBAK5abcrIcye2zOOMhSm",
+      "payment_link": "https://buy.stripe.com/4gM4gAc2Ra627hafPY0Fi1d",
+      "payment_link_id": "plink_1TsYBAK5abcrIcyeCOFJYEiF",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
+    },
+    "media-pack-100": {
+      "name": "Media Pack 100",
+      "amount_cents": 5000,
+      "product_id": "prod_UsImLIW5Fk87do",
+      "price_id": "price_1TsYBAK5abcrIcye7CxYma9v",
+      "payment_link": "https://buy.stripe.com/28E8wQff37XU8leeLU0Fi1e",
+      "payment_link_id": "plink_1TsYBBK5abcrIcyejSU3dYsZ",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
+    },
+    "image-single": {
+      "name": "Single image credit",
+      "amount_cents": 150,
+      "product_id": "prod_UsImFmnEf6vkhI",
+      "price_id": "price_1TsYBBK5abcrIcyePESrD38f",
+      "payment_link": "https://buy.stripe.com/bJe4gA1od1zwdFy6fo0Fi1f",
+      "payment_link_id": "plink_1TsYBBK5abcrIcyeJ9F8l8AB",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
+    },
+    "image-burst-10": {
+      "name": "Image burst 10",
+      "amount_cents": 900,
+      "product_id": "prod_UsImbqcMGjBkJt",
+      "price_id": "price_1TsYBBK5abcrIcyeC6lVdlFt",
+      "payment_link": "https://buy.stripe.com/4gM5kE3wl3HE0SMfPY0Fi1g",
+      "payment_link_id": "plink_1TsYBCK5abcrIcyej4sjik0M",
+      "layer": "micro",
+      "vertical": "media",
+      "phase": null
     }
   },
   "existing_account_products": {
