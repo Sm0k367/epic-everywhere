@@ -139,7 +139,7 @@
     } catch (e) {
       if (e.status === 402) {
         genMsg.innerHTML =
-          'Not enough credits. <a href="../#pricing">Buy a media pack</a> with this email.';
+          'You\'re out of creates. <a href="../#create">Unlock more access</a> with this email, then come back.';
       } else {
         genMsg.textContent =
           (e.data && (e.data.detail || e.data.error)) || e.message;

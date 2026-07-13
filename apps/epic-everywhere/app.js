@@ -12,11 +12,11 @@
   if (linkStatus) {
     if (linked > 0) {
       linkStatus.textContent =
-        linked + " live Stripe Payment Links · buy opens secure Checkout";
+        "Everything below is ready — tap a card to unlock instantly.";
       linkStatus.classList.add("is-live");
     } else {
       linkStatus.textContent =
-        "Payment Links pending — buttons open the start form.";
+        "Some options open a quick message form while we finish setup.";
     }
   }
 
@@ -48,10 +48,10 @@
     const href = hasLink ? sku.paymentLink : "#start";
     const btnClass = hasLink ? "btn btn-buy" : "btn btn-buy is-waitlist";
     const btnLabel = hasLink
-      ? "Buy " + sku.price
+      ? "Unlock · " + sku.price
       : sku.phase
-        ? "Waitlist"
-        : "Get help";
+        ? "Notify me"
+        : "Tell us more";
     return (
       '<article class="price-card" data-sku="' +
       escapeHtml(sku.id) +
@@ -219,11 +219,10 @@
     form.elements.namedItem("sku").value = skuParam;
   }
 
-  // Dock active section highlight
   const dock = document.querySelector(".dock");
   if (dock && "IntersectionObserver" in window) {
     const map = {
-      pricing: dock.querySelector('a[href="#pricing"]'),
+      create: dock.querySelector('a[href="#create"]'),
       start: dock.querySelector('a[href="#start"]'),
     };
     const io = new IntersectionObserver(
@@ -235,7 +234,7 @@
       },
       { rootMargin: "-40% 0px -40% 0px" }
     );
-    ["pricing", "start"].forEach((id) => {
+    ["create", "start"].forEach((id) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });

@@ -40,8 +40,8 @@
       </a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span></button>
       <nav class="nav" id="nav">
-        <a href="../#pricing">Buy credits</a>
-        <a href="../">Store</a>
+        <a href="../#create">Explore</a>
+        <a href="../">Home</a>
         <a href="../legal/">Legal</a>
         <button type="button" class="btn btn-sm btn-ghost" id="logout" hidden>Log out</button>
       </nav>
@@ -51,16 +51,16 @@
   <main class="wrap page studio-shell" id="main">
     <div class="studio-top page-hero">
       <div>
-        <p class="eyebrow">Credits → creation</p>
+        <p class="eyebrow">Your creative room</p>
         <h1>Make something that stops the scroll.</h1>
-        <p class="lede">Pay on the storefront → sign in with the <strong>same email</strong> → generate. Fast, focused, zero clutter.</p>
+        <p class="lede">Sign in with the email you used to unlock Studio. Describe anything — watch it appear.</p>
       </div>
-      <span class="credits-pill" id="credits-pill" hidden><span id="credit-count">0</span> credits</span>
+      <span class="credits-pill" id="credits-pill" hidden><span id="credit-count">0</span> left to create</span>
     </div>
 
     <div id="auth-panel" class="panel">
       <h2>Enter Studio</h2>
-      <p class="msg">Passwordless code. Use the email from your Stripe receipt for credit packs.</p>
+      <p class="msg">Passwordless code. Use the email you unlocked Studio with.</p>
       <div class="auth-split">
         <div>
           <label>Email
@@ -99,7 +99,7 @@
         </label>
         <div class="row">
           <button type="button" class="btn btn-primary" id="gen">Generate image</button>
-          <a class="btn btn-ghost" href="../#pricing">Buy credits</a>
+          <a class="btn btn-ghost" href="../#create">Get more access</a>
         </div>
         <p class="msg" id="gen-msg"></p>
         <div class="preview-frame" id="preview">
@@ -116,9 +116,9 @@
   </main>
 
   <nav class="dock" aria-label="Quick">
-    <a href="../#pricing">Buy</a>
+    <a href="../#create">Explore</a>
     <a href="./" class="is-active">Studio</a>
-    <a href="../">Store</a>
+    <a href="../">Home</a>
   </nav>
 
   <footer class="site-footer">
