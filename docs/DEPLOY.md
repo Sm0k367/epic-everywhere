@@ -129,6 +129,12 @@ When micro revenue covers ~$20–50/mo:
 
 ---
 
+## Public GitHub product repo
+
+**https://github.com/Sm0k367/epic-everywhere**
+
+This is the Vercel-importable product surface (landing + docs + epic-desk). Machine monorepo remains the agent brain; secrets stay in dashboards.
+
 ## Deploy paths (concrete)
 
 ### A. Vercel (recommended public site)

@@ -75,3 +75,21 @@ Details: `docs/DEPLOY.md`.
 ## License
 
 Proprietary © Epic Tech AI. Contact for partnership or school pilots.
+
+---
+
+## Legal (read before payments)
+
+Customer-facing policies live in [`apps/epic-everywhere/legal/`](./apps/epic-everywhere/legal/):
+
+- [Terms of Service](./apps/epic-everywhere/legal/TERMS.md)
+- [Privacy Policy](./apps/epic-everywhere/legal/PRIVACY.md)
+- [Refund Policy](./apps/epic-everywhere/legal/REFUNDS.md)
+- [Acceptable Use](./apps/epic-everywhere/legal/AUP.md)
+- [AI Disclaimer](./apps/epic-everywhere/legal/AI-DISCLAIMER.md)
+- [Cookie Policy](./apps/epic-everywhere/legal/COOKIES.md)
+- [Proprietary License](./apps/epic-everywhere/legal/LICENSE.md)
+
+Repository license summary: [LICENSE](./LICENSE)
+
+These are an operational baseline; have counsel review for your jurisdiction before high-volume commerce.
